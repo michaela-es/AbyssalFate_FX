@@ -1,6 +1,7 @@
 package com.example.abyssalfate_fx.main;
 
 import com.example.abyssalfate_fx.Classes.*;
+import com.example.abyssalfate_fx.Helper.CharacterSetter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -177,6 +178,8 @@ public class CharacterDetailsScreen extends JFrame {
             JOptionPane.showMessageDialog(
                     CharacterDetailsScreen.this, confirmationMessage,
                     "Character Confirmed", JOptionPane.INFORMATION_MESSAGE);
+            CharacterSetter charSetter = CharacterSetter.getInstance();
+            charSetter.setPlayer(character.getCharacter());
         });
         panel.add(selectButton);
 

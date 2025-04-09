@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        CharacterSetter entity = new CharacterSetter();
+        CharacterSetter entity = CharacterSetter.getInstance();
         CharacterClass player = entity.player;
         CharacterClass enemy = entity.enemy;
 
