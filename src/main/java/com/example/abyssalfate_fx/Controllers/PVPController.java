@@ -3,12 +3,15 @@ package com.example.abyssalfate_fx.Controllers;
 import com.example.abyssalfate_fx.Classes.*;
 import com.example.abyssalfate_fx.Helper.Combat;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
-
+import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
 import java.util.ResourceBundle;
 
 public class PVPController implements Initializable {
@@ -166,12 +169,14 @@ public class PVPController implements Initializable {
 
         if (isHit) {
             player2.loseHP(damage);
-            speakEvent("Player 1 hits Player 2 with Skill " + skillNumber + " for " + damage + " damage.");
+            speakEvent("Player 1 hits Player 2 with Skill " + player1.getSkillName() + " for " + damage + " damage.");
         } else {
             speakEvent("Player 1 misses Player 2.");
         }
         updateProgressBars();
         player1Turn = false;
+
+        checkForGameOver();
     }
 
     @FXML
@@ -222,7 +227,7 @@ public class PVPController implements Initializable {
 
         if (isHit) {
             player1.loseHP(damage);
-            speakEvent("Player 2 hits Player 1 with Skill " + skillNumber + " for " + damage + " damage.");
+            speakEvent("Player 2 hits Player 1 with Skill " + player2.getSkillName() + " for " + damage + " damage.");
         } else {
             speakEvent("Player 2 misses Player 1.");
         }
@@ -231,9 +236,35 @@ public class PVPController implements Initializable {
     }
 
     public void speakEvent(String event){
-        eventLog.appendText(event);
+        eventLog.appendText(event+"\n");
     }
 
+    private void showResultScreen(boolean player1Won) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/result_screen.fxml"));
+            Parent root = loader.load();
+
+            ResultScreenController resultController = loader.getController();
+            resultController.setOutcome(player1Won);
+
+            // Get the current stage and set the new scene
+            Stage stage = (Stage) eventLog.getScene().getWindow();
+            stage.setScene(new Scene(root, 1280, 720));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void checkForGameOver() {
+        if (player1.getHp() <= 0) {
+            speakEvent("Player 1 has been defeated!");
+            showResultScreen(false); // Player 1 lost
+        } else if (player2.getHp() <= 0) {
+            speakEvent("Player 2 has been defeated!");
+            showResultScreen(true); // Player 1 won
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

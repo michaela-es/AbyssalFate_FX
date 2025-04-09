@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.abyssalfate_fx.Controllers.ResultScreenController">
+    <Label fx:id="lblOutcome" layoutX="50" layoutY="50"/>
+    <Button text="Return to Menu" layoutX="50" layoutY="100" onAction="#handleReturnToMenu"/>
+</AnchorPane>
