@@ -19,14 +19,17 @@ public class OpenPVP extends Application {
 //        CharacterClass player = entity.player;
 //        CharacterClass enemy = entity.enemy;
 
-        CharacterClass player = new Rogue();
+        CharacterClass player1 = new Rogue();
         CharacterClass player2 =  new Rogue();
+
+        player1.setEnemy(player2);
+        player2.setEnemy(player1);
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/fxml/pvp_battle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/pvpstyles.css")).toExternalForm());
         PVPController controller = fxmlLoader.getController();
-        controller.setPlayers(player, player2);
+        controller.setPlayers(player1, player2);
 
         stage.setTitle("PVP Battle");
         stage.setScene(scene);

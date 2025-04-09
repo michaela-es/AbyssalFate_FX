@@ -128,7 +128,6 @@ public class ComputerBattleController implements Initializable {
                 int damage = combat.calcDamage(player.skill2());
                 enemy.loseHP(damage);
                 speakEvent("Player hits with " + player.nameSkill2 + " for " + damage + " damage.");
-                player.loseMana(player.costSkill2);
             } else {
                 speakEvent("Player misses their attack.");
             }
@@ -152,7 +151,6 @@ public class ComputerBattleController implements Initializable {
                 int damage = combat.calcDamage(player.skill3());
                 enemy.loseHP(damage);
                 speakEvent("Player hits with " + player.nameSkill3 + " for " + damage + " damage.");
-                player.loseMana(player.costSkill3);
             } else {
                 speakEvent("Player misses their attack.");
             }

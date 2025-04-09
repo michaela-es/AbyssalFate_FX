@@ -22,6 +22,9 @@ public class HelloApplication extends Application {
         CharacterClass player = new Rogue();
         CharacterClass enemy =  new Rogue();
 
+        player.setEnemy(enemy);
+        enemy.setEnemy(player);
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/fxml/pve_battle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());

@@ -98,11 +98,11 @@ public abstract class CharacterClass {
 
 
     public void loseMana(int damage){
-        mana = Math.max(0, mana-=damage);
+        mana = Math.max(0, mana - damage);
     }
 
     public void gainMana(int manaGain){
-        mana = Math.min(maxMana, mana+=manaGain);
+        mana = Math.min(maxMana, mana + manaGain);
     }
     // Getters
     public int getHp(){
