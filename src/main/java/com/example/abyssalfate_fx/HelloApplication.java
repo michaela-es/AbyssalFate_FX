@@ -17,8 +17,11 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         CharacterSetter entity = CharacterSetter.getInstance();
-        CharacterClass player = entity.player;
-        CharacterClass enemy = entity.enemy;
+//        CharacterClass player = entity.player;
+//        CharacterClass enemy = entity.enemy;
+
+        CharacterClass player = new Rogue();
+        CharacterClass enemy =  new Rogue();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/fxml/pve_battle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
