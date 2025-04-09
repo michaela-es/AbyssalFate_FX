@@ -1,32 +1,42 @@
-// Assuming this file is in the 'Classes' package based on your import
-package com.example.abyssalfate_fx.Classes; // Or 'main' if it's in the main package
+package com.example.abyssalfate_fx.Classes;
 
 public class CharactersSelection {
-    private String name;
-    private String imagePath;
-    private boolean unlocked;
-    private int power;
-    private int defense;
-    private int speed;
-    private String story; // <-- ADD THIS FIELD
+    private CharacterClass character; // Hold a reference to a CharacterClass instance
+    private String story;
 
     // MODIFY THE CONSTRUCTOR
-    public CharactersSelection(String name, String imagePath, boolean unlocked, int power, int defense, int speed, String story) {
-        this.name = name;
-        this.imagePath = imagePath;
-        this.unlocked = unlocked;
-        this.power = power;
-        this.defense = defense;
-        this.speed = speed;
-        this.story = story; // <-- ASSIGN THE STORY
+    public CharactersSelection(CharacterClass character, String story) {
+        this.character = character;
+        this.story = story;
     }
 
-    // /Getters
-    public String getName() { return name; }
-    public String getImagePath() { return imagePath; }
-    public boolean isUnlocked() { return unlocked; }
-    public int getPower() { return power; }
-    public int getDefense() { return defense; }
-    public int getSpeed() { return speed; }
-    public String getStory() { return story; } // <-- ADD GETTER FOR STORY
+    // Getters
+    public String getName() {
+        return character.getClass().getSimpleName(); // Get the simple class name
+    }
+
+    public String getImagePath() {
+        // You can return a default image path or implement a method in CharacterClass to get an image path
+        return "res/default.png"; // Placeholder
+    }
+
+    public int getMaxHp() {
+        return character.getMaxHp(); // Get max HP from CharacterClass
+    }
+
+    public int getAttack() {
+        return character.getHitBonus(); // Assuming hit bonus is used as attack
+    }
+
+    public int getDefense() {
+        return character.getAC(); // Get Armor Class as defense
+    }
+
+    public String getStory() {
+        return story; // Return the story
+    }
+
+    public CharacterClass getCharacter() {
+        return character; // Return the CharacterClass instance
+    }
 }

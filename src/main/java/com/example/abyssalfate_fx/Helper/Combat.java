@@ -19,7 +19,7 @@ public class Combat {
         return false;
     }
 
-    private int calcDamage(int damage){
+    public int calcDamage(int damage){
         int totalDamage = damage * critMod;
         critMod = 1;
         return totalDamage;

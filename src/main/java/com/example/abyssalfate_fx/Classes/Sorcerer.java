@@ -13,8 +13,8 @@ public class Sorcerer extends CharacterClass {
         nameSkill3= "Overchannel";
 
 
-        backstory = "The Sorcerer's dragonic heritage made them naturally attuned to magic. But hunters and pillagers made them flee their homeladnd." +
-                "They wander the world under a human glamour, yet upon feeling their hands, you will ";
+        backstory = "The Sorcerer's draconic heritage made them naturally attuned to magic. But hunters and pillagers made them flee their homeland." +
+                "They wander the world under a human glamour, yet upon feeling their hands, you will graze hardened scales.";
         descSkill1 = "Deals 1d4 damage. Restores 20 - 25 mana.";
         descSkill2 = "Deals 10d6 damage. Opponent saves against 15 to take half damage. " + costSkill2 + " mana cost.";
         descSkill3 = "Deals 12d8 damage. Opponent can save against 16 to take half damage. " + costSkill3 + " mana cost.";

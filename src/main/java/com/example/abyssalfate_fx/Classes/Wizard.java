@@ -3,9 +3,9 @@ package com.example.abyssalfate_fx.Classes;
 public class Wizard extends CharacterClass {
 
     public Wizard() {
-        super(65, 120, 12, 16, 11);
+        super(65, 90, 12, 16, 11);
 
-        costSkill2 = 25;
+        costSkill2 = 45;
         costSkill3 = 30;
 
         nameSkill1 = "Esoteric Ritual";
@@ -14,7 +14,7 @@ public class Wizard extends CharacterClass {
 
         descSkill1 = "Deals 1d4 damage. Restore 15 - 20 mana.";
         descSkill2 = "Deals 5d12 damage. Opponent saves against 16 to take half damage. " + costSkill2 + " mana cost.";
-        descSkill3 = "Deals 10d6 damage. Opponent can save against 16 to take half damage. " + costSkill3 + " mana cost.";
+        descSkill3 = "Deals 8d6 damage. Opponent can save against 16 to take half damage. " + costSkill3 + " mana cost.";
 
     }
 
@@ -51,7 +51,7 @@ public class Wizard extends CharacterClass {
 
     @Override
     public int skill3() {
-        damage = rollDamage(10, 6);
+        damage = rollDamage(8, 6);
 
         damage = finalDamage(damage);
 

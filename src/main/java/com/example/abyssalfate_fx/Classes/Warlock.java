@@ -14,6 +14,7 @@ public class Warlock extends CharacterClass {
         nameSkill2 = "Eldritch Blast";
         nameSkill3= "Ruination Channeling";
 
+        backstory="The Warlock was once imprisoned for their strange gifts, but after making a pact with a demon, their chains rusted away and they left their old life in cinders. If you hear the faint echoes of sorrowful wraiths, or see shadows shaped like daggers — they may be close by.";
         descSkill1 = "Deals 1d5 damage. Increases 'Grimblight' by 2. Regenerates 10-15 mana.";
         descSkill2 = "Deals 1d10 + additional damage based on 'Grimblight'. " + costSkill2 + " mana cost.";
         descSkill3 = "Increases Grimblight by 10-15. " + costSkill3 + " mana cost.";

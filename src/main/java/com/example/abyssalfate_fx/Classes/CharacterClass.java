@@ -68,7 +68,6 @@ public abstract class CharacterClass {
     public int calculateDamage(boolean isCritical, int skillDamage) {
         return isCritical ? skillDamage * 2 : skillDamage;
     }
-
     public boolean savingThrow(int enemyDC){
         return roller.nextInt(20)+1 >= enemyDC;
     }
@@ -94,16 +93,12 @@ public abstract class CharacterClass {
     }
 
     public void loseHP(int damage){
-        mana = Math.max(0, hp-=damage);
+        hp = Math.max(0, hp-=damage);
     }
 
 
     public void loseMana(int damage){
         mana = Math.max(0, mana-=damage);
-    }
-
-    public void gainHP(int heal){
-        hp = Math.min(maxHp, hp+=heal);
     }
 
     public void gainMana(int manaGain){
@@ -133,8 +128,11 @@ public abstract class CharacterClass {
     public int getSavingDC(){ return savingDC; }
     // Setters
 
+    public void setHP(int hp){
+        hp = 0;
+    }
     public void increaseAC (int ac){
-        this.armorClass = armorClass+=ac;
+        armorClass+=ac;
     }
 
     public void clearAC(){
@@ -198,5 +196,4 @@ public abstract class CharacterClass {
 
         return damage;
     }
-
 }

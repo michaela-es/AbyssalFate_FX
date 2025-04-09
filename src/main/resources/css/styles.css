@@ -1,0 +1,38 @@
+/* General background styling */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #1e1e2f, #3a3a5f);
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #444466;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-color: #8888aa;
+    -fx-border-width: 2px;
+}
+
+.button:hover {
+    -fx-background-color: #6666aa;
+    -fx-text-fill: yellow;
+}
+
+.button:pressed {
+    -fx-background-color: #333355;
+}
+
+/* ProgressBar styling */
+.progress-bar {
+    -fx-accent: green; /* HP bar */
+}
+
+.progress-bar-mana {
+    -fx-accent: blue; /* MP bar */
+}
+
+/* Label styling */
+.label {
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+}
