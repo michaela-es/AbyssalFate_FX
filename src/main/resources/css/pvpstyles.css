@@ -1,0 +1,85 @@
+/* General background styling */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #1e1e2f, #3a3a5f);
+    /* -fx-background-image: url('path-to-your-bg-image.png') */
+    -fx-background-size: cover;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: #8888aa;
+    -fx-padding: 10px;
+    -fx-font-size: 18px;
+    -fx-font-family: "Courier New", monospace;
+    -fx-text-fill: #f0f0f0;
+}
+
+/* Button hover and pressed states */
+.button:hover {
+    -fx-background-color: #6666aa;
+    -fx-text-fill: #ffcc00; /* RPG-style yellow text */
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.7), 5, 0.0, 2, 2); /* Light glow effect */
+    -fx-border-color: #ffcc00; /* Bright yellow border on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #333355;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #444488; /* Slightly different border on press */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 5, 0.0, 2, 2); /* Darker shadow on press */
+}
+
+/* ProgressBar styling */
+.progress-bar {
+    -fx-background-color: linear-gradient(to bottom, #33cc33, #22aa22); /* Gradient for HP bar */
+    -fx-accent: #32cd32; /* Bright green for HP bar */
+    -fx-background-radius: 5px; /* Rounded corners for progress bars */
+    -fx-border-radius: 5px; /* Rounded corners for progress bars */
+    -fx-padding: 5px; /* Padding inside progress bar */
+}
+
+/* Mana ProgressBar */
+.progress-bar-mana {
+    -fx-background-color: #444466;
+    -fx-accent: #1e90ff; /* Classic blue for MP bar */
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 2, 0.0, 1, 1); /* Glossy effect for mana bar */
+}
+
+/* Label styling */
+.label {
+    -fx-font-family: "Courier New", monospace; /* Typewriter font for that retro RPG look */
+    -fx-font-size: 22px;
+    -fx-text-fill: #f0f0f0;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center; /* Centered labels for better clarity */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 2, 0.0, 1, 1); /* Drop shadow for readability */
+}
+
+/* Optional: Add some additional "old-school" style borders for containers */
+.container {
+    -fx-border-color: #8888aa;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    -fx-padding: 10px;
+    -fx-background-insets: 0 0 0 0;
+}
+
+/* Optional: Style for the text fields, if you have any */
+.text-field {
+    -fx-background-color: #333355;
+    -fx-text-fill: #fff;
+    -fx-border-color: #8888aa;
+    -fx-border-width: 2px;
+    -fx-padding: 8px;
+    -fx-font-size: 16px;
+    -fx-font-family: "Courier New", monospace;
+}
+
+.text-field:focused {
+    -fx-border-color: #ffcc00; /* Bright yellow border on focus */
+}

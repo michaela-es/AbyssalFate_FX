@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.*;
+
+import java.util.Objects;
 
 public class PVPController {
     @FXML
@@ -54,10 +57,10 @@ public class PVPController {
         btnP2Skill2.setText(player2.nameSkill2);
         btnP2Skill3.setText(player2.nameSkill3);
 
-//        barPlayerHP.getStyleClass().add("progress-bar");
-//        barPlayerMP.getStyleClass().add("progress-bar-mana");
-//        barEnemyHP.getStyleClass().add("progress-bar");
-//        barEnemyMP.getStyleClass().add("progress-bar-mana");
+        healthBarPlayer1.getStyleClass().add("progress-bar");
+        manaBarPlayer1.getStyleClass().add("progress-bar-mana");
+        healthBarPlayer2.getStyleClass().add("progress-bar");
+        manaBarPlayer2.getStyleClass().add("progress-bar-mana");
 
         updateProgressBars();
     }

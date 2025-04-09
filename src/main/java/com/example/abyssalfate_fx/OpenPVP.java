@@ -1,7 +1,7 @@
 package com.example.abyssalfate_fx;
 
 import com.example.abyssalfate_fx.Classes.*;
-import com.example.abyssalfate_fx.Controllers.ComputerBattleController;
+import com.example.abyssalfate_fx.Controllers.PVPController;
 import com.example.abyssalfate_fx.Helper.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class HelloApplication extends Application {
+public class OpenPVP extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -20,15 +20,15 @@ public class HelloApplication extends Application {
 //        CharacterClass enemy = entity.enemy;
 
         CharacterClass player = new Rogue();
-        CharacterClass enemy =  new Rogue();
+        CharacterClass player2 =  new Rogue();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/fxml/pve_battle.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/fxml/pvp_battle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
-        ComputerBattleController controller = fxmlLoader.getController();
-        controller.setupBattle(player, enemy);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/pvpstyles.css")).toExternalForm());
+        PVPController controller = fxmlLoader.getController();
+        controller.setPlayers(player, player2);
 
-        stage.setTitle("Computer Battle");
+        stage.setTitle("PVP Battle");
         stage.setScene(scene);
         stage.show();
     }
