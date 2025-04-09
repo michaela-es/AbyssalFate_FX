@@ -34,8 +34,8 @@
          <font>
             <Font name="Arial Narrow" size="28.0" />
          </font></TextArea>
-        <Button id="skill2" fx:id="btnSkill2" layoutX="922.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSkill1Action" prefHeight="89.0" prefWidth="302.0" text="Button" />
-        <Button id="skill3" fx:id="btnSkill3" layoutX="920.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleSkill2Action" prefHeight="94.0" prefWidth="306.0" text="Button" />
-        <Button id="skill1" fx:id="btnSkill1" layoutX="922.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleSkill3Action" prefHeight="95.0" prefWidth="302.0" text="Button" />
+        <Button  fx:id="btnSkill1" layoutX="922.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleSkill1Action" prefHeight="95.0" prefWidth="302.0" text="Button" />
+        <Button  fx:id="btnSkill2" layoutX="922.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSkill2Action" prefHeight="89.0" prefWidth="302.0" text="Button" />
+        <Button  fx:id="btnSkill3" layoutX="920.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleSkill3Action" prefHeight="94.0" prefWidth="306.0" text="Button" />
     </children>
 </AnchorPane>

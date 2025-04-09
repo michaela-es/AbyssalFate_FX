@@ -21,6 +21,4 @@ public class EndScreenController {
 
     }
 
-    public void handleRestartBattle(ActionEvent actionEvent) {
-    }
 }

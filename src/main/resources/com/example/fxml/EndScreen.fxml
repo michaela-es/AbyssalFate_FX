@@ -6,7 +6,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.EndScreenController">
+<AnchorPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.EndScreenController"
+            stylesheets="@css/endCSS.css"
+>
 
     <VBox alignment="CENTER" layoutX="100.0" layoutY="50.0" spacing="20.0" />
      <Label fx:id="lblOutcome" layoutX="499.0" layoutY="324.0" style="-fx-font-size: 24px;" text="Outcome will be displayed here" wrapText="true">
@@ -16,6 +18,4 @@
    </Label>
 
      <Button layoutX="609.0" layoutY="451.0" onAction="#handleReturnToMenu" text="Return to Main Menu" />
-     <Button layoutX="632.0" layoutY="489.0" onAction="#handleRestartBattle" text="Restart Battle" />
-
 </AnchorPane>

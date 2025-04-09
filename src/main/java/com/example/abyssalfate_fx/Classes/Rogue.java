@@ -24,7 +24,7 @@ public class Rogue extends CharacterClass {
     public int skill1() {
 
         isHidden = true;
-        gainMana(roller.nextInt(5)+10);
+        gainMana(roller.nextInt(5)+11);
 
         setSkillName(1);
         return rollDamage(1,6);

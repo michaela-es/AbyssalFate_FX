@@ -62,7 +62,7 @@ public class ComputerBattleController implements Initializable {
         hoverFX();
     }
 
-    public void setupUI(){
+    public void setupUI() {
         btnSkill1.setText(player.nameSkill1);
         btnSkill2.setText(player.nameSkill2);
         btnSkill3.setText(player.nameSkill3);
@@ -89,12 +89,21 @@ public class ComputerBattleController implements Initializable {
         barEnemyMP.getStyleClass().add("progress-bar-mana");
     }
 
-    public void speakEvent(String event){
-        txtEvents.setText(event);
+    public void speakEvent(String event) {
+        final int MAX_LINES = 10;
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> txtEvents.setText(""));
-        delay.play();
+        txtEvents.appendText(event + "\n");
+        String[] lines = txtEvents.getText().split("\n");
+
+        if (lines.length > MAX_LINES) {
+            StringBuilder newText = new StringBuilder();
+
+            for (int i = lines.length - MAX_LINES; i < lines.length; i++) {
+                newText.append(lines[i]).append("\n");
+            }
+
+            txtEvents.setText(newText.toString());
+        }
     }
 
     @FXML
@@ -105,7 +114,7 @@ public class ComputerBattleController implements Initializable {
         boolean isHit = combat.isHit(totalRoll, enemy.getAC());
 
         if (isHit) {
-            int damage = combat.calcDamage(player.skill1());
+            int damage = player.skill1();
             enemy.loseHP(damage);
             speakEvent("Player hits with " + player.nameSkill1 + " for " + damage + " damage.");
         } else {
@@ -125,7 +134,7 @@ public class ComputerBattleController implements Initializable {
             boolean isHit = combat.isHit(totalRoll, enemy.getAC());
 
             if (isHit) {
-                int damage = combat.calcDamage(player.skill2());
+                int damage = player.skill2();
                 enemy.loseHP(damage);
                 speakEvent("Player hits with " + player.nameSkill2 + " for " + damage + " damage.");
             } else {
@@ -148,7 +157,7 @@ public class ComputerBattleController implements Initializable {
             boolean isHit = combat.isHit(totalRoll, enemy.getAC());
 
             if (isHit) {
-                int damage = combat.calcDamage(player.skill3());
+                int damage = player.skill3();
                 enemy.loseHP(damage);
                 speakEvent("Player hits with " + player.nameSkill3 + " for " + damage + " damage.");
             } else {
@@ -177,30 +186,26 @@ public class ComputerBattleController implements Initializable {
         }
         updateProgressBars();
         checkBattleOutcome();
-
     }
 
     private void checkBattleOutcome() {
+        Stage currentStage = (Stage) btnSkill1.getScene().getWindow();
         if (player.getHp() <= 0) {
             // Player has lost
-            showBattleEndScreen(false);
+            showBattleEndScreen(currentStage, false);
         } else if (enemy.getHp() <= 0) {
             // Player has won
-            showBattleEndScreen(true);
+            showBattleEndScreen(currentStage, true);
         }
     }
-
-    private void showBattleEndScreen(boolean playerWon) {
-        // Load the appropriate screen based on the outcome
+    private void showBattleEndScreen(Stage stage, boolean playerWon) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/EndScreen.fxml"));
             Parent root = loader.load();
 
-            // Assuming you have an EndScreenController to handle the end screen logic
             EndScreenController endScreenController = loader.getController();
             endScreenController.setOutcome(playerWon);
 
-            Stage stage = (Stage) enemyName.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -234,5 +239,4 @@ public class ComputerBattleController implements Initializable {
     private void clearSkillDescription() {
         txtSkillHover.setText("");
     }
-
 }
