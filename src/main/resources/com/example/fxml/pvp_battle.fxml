@@ -6,19 +6,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.PVPController">
    <children>
       <ProgressBar fx:id="healthBarPlayer2" layoutX="882.0" layoutY="61.0" prefHeight="39.0" prefWidth="372.0" progress="0.0" />
       <ProgressBar fx:id="manaBarPlayer2" layoutX="879.0" layoutY="122.0" prefHeight="39.0" prefWidth="372.0" progress="0.0" />
       <ProgressBar fx:id="healthBarPlayer1" layoutX="25.0" layoutY="62.0" prefHeight="39.0" prefWidth="372.0" progress="0.0" />
       <ProgressBar fx:id="manaBarPlayer1" layoutX="22.0" layoutY="123.0" prefHeight="39.0" prefWidth="372.0" progress="0.0" />
-      <TextField fx:id="hoverPlayer1" editable="false" layoutX="27.0" layoutY="473.0" prefHeight="77.0" prefWidth="376.0" />
+      <TextField   fx:id="hoverPlayer1" editable="false" layoutX="27.0" layoutY="473.0" prefHeight="77.0" prefWidth="376.0" />
       <Label fx:id="imagePlayer1" layoutX="25.0" layoutY="171.0" prefHeight="218.0" prefWidth="376.0" />
       <Label fx:id="imagePlayer2" layoutX="879.0" layoutY="175.0" prefHeight="268.0" prefWidth="376.0" />
-      <Button layoutX="30.0" layoutY="562.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
-      <Button layoutX="158.0" layoutY="562.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
-      <Button layoutX="285.0" layoutY="562.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
+      <Button fx:id="btnP1Skill1" layoutX="30.0" layoutY="562.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
+      <Button fx:id="btnP1Skill2" layoutX="158.0" layoutY="562.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
+      <Button fx:id="btnP1Skill3" layoutX="285.0" layoutY="562.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
       <TextField fx:id="hoverPlayer2" editable="false" layoutX="882.0" layoutY="475.0" prefHeight="77.0" prefWidth="376.0" />
       <Button fx:id="btnP2Skill1" layoutX="885.0" layoutY="564.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
       <Button fx:id="btnP2Skill2" layoutX="1013.0" layoutY="564.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="115.0" text="Button" />
