@@ -54,6 +54,11 @@ public class ComputerBattleController implements Initializable {
     public CharacterClass player;
     public CharacterClass enemy;
     public Combat combat = new Combat();
+    private Stage stage;
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
     public void setupBattle(CharacterClass player, CharacterClass enemy) {
         this.player = player;

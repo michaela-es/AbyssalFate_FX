@@ -119,6 +119,8 @@ public class PVPController implements Initializable {
 
         manaBarPlayer1.setProgress(manaP1);
         manaBarPlayer2.setProgress(manaP2);
+
+        checkForGameOver();
     }
 
     @FXML
@@ -176,7 +178,6 @@ public class PVPController implements Initializable {
         updateProgressBars();
         player1Turn = false;
 
-        checkForGameOver();
     }
 
     @FXML

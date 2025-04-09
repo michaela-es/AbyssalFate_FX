@@ -10,9 +10,9 @@ public class ResultScreenController {
 
     public void setOutcome(boolean player1Won) {
         if (player1Won) {
-            lblOutcome.setText("Congratulations! Player 1 has won the battle!");
+            lblOutcome.setText("Player 1 has won the battle!");
         } else {
-            lblOutcome.setText("Player 2 has won the battle! Better luck next time!");
+            lblOutcome.setText("Player 2 has won the battle!");
         }
     }
 
