@@ -57,7 +57,7 @@ public class PVPController implements Initializable {
     CharacterClass player2;
     Combat combat = new Combat();
     boolean player1Turn = true;
-
+    private String event;
     public void setPlayers(CharacterClass player1, CharacterClass player2) {
         this.player1 = player1;
         this.player2 = player2;

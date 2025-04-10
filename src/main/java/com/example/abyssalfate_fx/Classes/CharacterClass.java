@@ -50,19 +50,13 @@ public abstract class CharacterClass {
         return hp > 0;
     }
 
-//    public boolean hasAdvantage(){
-//        return hasAdvantage;
-//    }
-
     public int rollToHit(){
         if (hasAdvantage){
-            return roller.nextInt(20)+1;
+            return rollWithAdvantage();
         } else
-            return rollToHit();
+            return roller.nextInt(20)+1;
     }
-    public int calculateDamage(boolean isCritical, int skillDamage) {
-        return isCritical ? skillDamage * 2 : skillDamage;
-    }
+
     public boolean savingThrow(int enemyDC){
         return roller.nextInt(20)+1 >= enemyDC;
     }
@@ -123,9 +117,6 @@ public abstract class CharacterClass {
     public int getSavingDC(){ return savingDC; }
     // Setters
 
-    public void setHP(int hp){
-        hp = 0;
-    }
     public void increaseAC (int ac){
         armorClass+=ac;
     }

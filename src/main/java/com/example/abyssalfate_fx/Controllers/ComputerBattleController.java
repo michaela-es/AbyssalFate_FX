@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 
+import java.io.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -74,7 +75,16 @@ public class ComputerBattleController implements Initializable {
 
         updateProgressBars();
     }
+    public void writeBattleLog(String logMessage) {
+        String filePath = "/logs/BattleLog.txt"; // Adjust based on your setup
 
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(logMessage);
+            writer.newLine(); // Adds a new line
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
     private void updateProgressBars() {
         double playerProgress = (double) player.getHp() / player.getMaxHp();
         double enemyProgress = (double) enemy.getHp() / enemy.getMaxHp();
@@ -95,6 +105,7 @@ public class ComputerBattleController implements Initializable {
     }
 
     public void speakEvent(String event) {
+        writeBattleLog(event);
         final int MAX_LINES = 10;
 
         txtEvents.appendText(event + "\n");
