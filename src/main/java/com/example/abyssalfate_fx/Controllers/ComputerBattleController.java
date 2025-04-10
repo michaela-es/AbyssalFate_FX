@@ -211,9 +211,11 @@ public class ComputerBattleController implements Initializable {
     private void checkBattleOutcome() {
         if (player.getHp() <= 0) {
             // Player has lost
+            writeBattleLog("Player lost");
             showBattleEndScreen(stage, false);
         } else if (enemy.getHp() <= 0) {
             // Player has won
+            writeBattleLog("Player won");
             showBattleEndScreen(stage, true);
         }
     }

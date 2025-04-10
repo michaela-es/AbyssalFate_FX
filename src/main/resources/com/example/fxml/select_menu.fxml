@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.SelectMenuController">
+   <children>
+      <ToggleButton fx:id="btnPVE" layoutX="427.0" layoutY="90.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="PVE" textAlignment="CENTER">
+         <font>
+            <Font name="Courier New Bold" size="36.0" />
+         </font></ToggleButton>
+      <ToggleButton fx:id="btnPVP" layoutX="643.0" layoutY="90.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="PVP">
+         <font>
+            <Font name="Courier New Bold" size="36.0" />
+         </font></ToggleButton>
+      <Button fx:id="btnLock" layoutX="517.0" layoutY="599.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="249.0" text="SELECT">
+         <font>
+            <Font name="Courier New Bold Italic" size="31.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="textCharStory" editable="false" layoutX="360.0" layoutY="261.0" prefHeight="240.0" prefWidth="559.0" text="Character Backstory here" wrapText="true">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextArea>
+      <Text fx:id="txtClassName" layoutX="321.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ClassName" textAlignment="CENTER" wrappingWidth="650.1367797851562">
+         <font>
+            <Font name="Courier New" size="57.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnBack" layoutX="512.0" layoutY="514.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="125.0" text="&lt;-">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnNext" layoutX="655.0" layoutY="514.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="114.0" text="-&gt;">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

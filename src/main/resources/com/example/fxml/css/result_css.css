@@ -1,36 +1,35 @@
-
+/* resultScreen.css */
 .root {
-    -fx-background-color: linear-gradient(to bottom, #000000, #8e44ad);
+    -fx-background-color: #1a1a1a;
+    -fx-background-image: url('/images/result_background.jpg');
+    -fx-background-size: cover;
 }
 
-.label {
-    -fx-text-fill: white;
-    -fx-font-family: "Arial Black";
-    -fx-font-size: 60px;
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 1);
-    -fx-padding: 20;
+#lblOutcome {
+    -fx-font-size: 36px;
+    -fx-font-family: 'MedievalSharp', 'Times New Roman', serif;
+    -fx-text-fill: #d4af37; /* Gold color */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 1);
 }
 
 .button {
-    -fx-background-color: linear-gradient(to bottom, #8e44ad, #9b59b6);
-    -fx-text-fill: white;
-    -fx-font-size: 24px;
-    -fx-padding: 15px 30px;
-    -fx-background-radius: 30px;
-    -fx-border-radius: 30px;
-    -fx-border-color: #6f2c91; /* Darker purple border */
-    -fx-border-width: 2px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
-    -fx-cursor: hand;
+    -fx-background-color:
+        linear-gradient(#8b4513, #5d3a1a),
+        radial-gradient(center 50% -40%, radius 200%, #8b4513 45%, #5d3a1a 50%);
+    -fx-background-radius: 5;
+    -fx-text-fill: #f5e7c1;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-border-color: #d4af37;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(to bottom, #9b59b6, #8e44ad); /* Inverted gradient on hover */
-    -fx-border-color: #5e3370; /* Darker border color on hover */
-}
-
-.button:pressed {
-    -fx-background-color: #6f2c91; /* Darker purple when pressed */
-    -fx-border-color: #5e3370; /* Darker border color when pressed */
+    -fx-background-color:
+        linear-gradient(#a0522d, #6b4423),
+        radial-gradient(center 50% -40%, radius 200%, #a0522d 45%, #6b4423 50%);
+    -fx-text-fill: #fff8e7;
 }
