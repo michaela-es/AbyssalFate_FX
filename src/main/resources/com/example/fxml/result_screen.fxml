@@ -5,13 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.abyssalfate_fx.Controllers.ResultScreenController"
-            stylesheets="@css/result_css.css"
->
-    <Label fx:id="lblOutcome" layoutX="315.0" layoutY="271.0" text="Outcome will be displayed here" wrapText="true">
+<AnchorPane prefHeight="720" prefWidth="1280" stylesheets="@css/result_css.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.ResultScreenController">
+    <Label fx:id="lblOutcome" layoutX="110.0" layoutY="270.0" text="Outcome will be displayed here" wrapText="true">
       <font>
          <Font name="Arial Black" size="42.0" />
       </font></Label>
-    <Button layoutX="617.0" layoutY="465.0" onAction="#handleReturnToMenu" text="Return to Menu" />
+    <Button layoutX="557.0" layoutY="551.0" onAction="#handleReturnToMenu" text="Return to Menu" />
 </AnchorPane>
