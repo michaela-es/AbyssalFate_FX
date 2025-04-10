@@ -10,9 +10,9 @@ public class Ranger extends CharacterClass {
         costSkill2 = 30;
         costSkill3 = 45;
 
-        nameSkill1 = "Cleave";
-        nameSkill2 = "Heroic Form";
-        nameSkill3= "Divine Smite";
+        nameSkill1 = "Arcane Shot";
+        nameSkill2 = "Tempest's Arrow";
+        nameSkill3= "Nature's Reckoning";
 
         descSkill1 = "Deals 1d8 damage to opponent. Restores 12 - 17 mana. Increases Hunter’s Mark by 3d6.";
         descSkill2 = "Deals 2d12 + Hunter’s Mark damage. " + costSkill2 + " mana cost.";
