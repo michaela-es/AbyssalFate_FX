@@ -3,7 +3,7 @@ package com.example.abyssalfate_fx.Classes;
 public class Sorcerer extends CharacterClass {
 
     public Sorcerer() {
-        super(70, 120, 13, 16, 5);
+        super(70, 120, 13, 16, 9);
 
         costSkill2 = 40;
         costSkill3 = 80;

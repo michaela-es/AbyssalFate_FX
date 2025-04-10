@@ -55,16 +55,11 @@ public abstract class CharacterClass {
 //    }
 
     public int rollToHit(){
-        return (roller.nextInt(20)+1);
-    }
-
-    public int attackRoll(){
         if (hasAdvantage){
-            return rollWithAdvantage();
+            return roller.nextInt(20)+1;
         } else
             return rollToHit();
     }
-
     public int calculateDamage(boolean isCritical, int skillDamage) {
         return isCritical ? skillDamage * 2 : skillDamage;
     }
