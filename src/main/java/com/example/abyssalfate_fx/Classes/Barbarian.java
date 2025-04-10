@@ -42,7 +42,6 @@ public class Barbarian extends CharacterClass {
             gainAdvantage();
             rage();
         }
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -55,7 +54,6 @@ public class Barbarian extends CharacterClass {
             rage();
         }
         setSkillName(3);
-        loseMana(costSkill3);
         return damage;
     }
 

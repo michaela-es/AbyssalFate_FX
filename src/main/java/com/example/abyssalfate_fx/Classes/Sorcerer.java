@@ -35,7 +35,6 @@ public class Sorcerer extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -58,7 +57,6 @@ public class Sorcerer extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill3);
         setSkillName(3);
         return damage;
     }

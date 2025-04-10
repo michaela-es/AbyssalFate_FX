@@ -33,7 +33,6 @@ public class Fighter extends CharacterClass {
         damage = rollDamage(4, 8);
         gainAdvantage();
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -44,7 +43,6 @@ public class Fighter extends CharacterClass {
 
         increaseAC(4);
         setSkillName(3);
-        loseMana(costSkill3);
         return damage;
     }
 

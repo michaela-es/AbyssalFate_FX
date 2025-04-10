@@ -35,7 +35,6 @@ public class Warlock extends CharacterClass {
         damage = rollDamage(1, 10);
         damage += Grimblight;
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -45,7 +44,6 @@ public class Warlock extends CharacterClass {
 
         Grimblight += roller.nextInt(15)+10;
 
-        loseMana(costSkill3);
         setSkillName(3);
         return damage;
     }

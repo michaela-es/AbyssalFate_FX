@@ -147,7 +147,12 @@ public class ComputerBattleController implements Initializable {
 
     @FXML
     private void handleSkill2Action() {
+
+
         if (player.getMana() >= player.costSkill2) {
+
+            player.loseMana(player.costSkill2);
+
             int baseroll = player.rollToHit();
             combat.checkCrit(baseroll);
             int totalRoll = combat.totalRoll(baseroll, player.getHitBonus());
@@ -170,7 +175,9 @@ public class ComputerBattleController implements Initializable {
 
     @FXML
     private void handleSkill3Action() {
+
         if (player.getMana() >= player.costSkill3) {
+            player.loseMana(player.costSkill3);
             int baseroll = player.rollToHit();
             combat.checkCrit(baseroll);
             int totalRoll = combat.totalRoll(baseroll, player.getHitBonus());

@@ -148,6 +148,7 @@ public class PVPController implements Initializable {
     @FXML
     private void handleP1Skill2Action() {
         if (player1Turn && player1.getMana() >= player1.costSkill2) {
+            player1.loseMana(player1.costSkill2);
             handlePlayer1Attack(2);
         } else {
             speakEvent("Not enough mana for Skill 2.");
@@ -157,6 +158,7 @@ public class PVPController implements Initializable {
     @FXML
     private void handleP1Skill3Action() {
         if (player1Turn && player1.getMana() >= player1.costSkill3) {
+            player1.loseMana(player1.costSkill3);
             handlePlayer1Attack(3);
         } else {
             speakEvent("Not enough mana for Skill 3.");
@@ -205,6 +207,7 @@ public class PVPController implements Initializable {
     @FXML
     private void handleP2Skill2Action() {
         if (!player1Turn && player2.getMana() >= player2.costSkill2) {
+            player2.loseMana(player2.costSkill2);
             handlePlayer2Attack(2);
         } else {
             speakEvent("Not enough mana for Skill 2.");
@@ -214,6 +217,7 @@ public class PVPController implements Initializable {
     @FXML
     private void handleP2Skill3Action() {
         if (!player1Turn && player2.getMana() >= player2.costSkill3) {
+            player2.loseMana(player2.costSkill3);
             handlePlayer2Attack(3);
         } else {
             speakEvent("Not enough mana for Skill 3.");

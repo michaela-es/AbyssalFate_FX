@@ -42,7 +42,6 @@ public class Ranger extends CharacterClass {
 
         clearMark();
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -54,7 +53,6 @@ public class Ranger extends CharacterClass {
 
         clearMark();
         setSkillName(3);
-        loseMana(costSkill3);
         return damage;
     }
 }

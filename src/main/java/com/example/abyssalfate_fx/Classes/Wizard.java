@@ -32,7 +32,6 @@ public class Wizard extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -55,7 +54,6 @@ public class Wizard extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill3);
         setSkillName(3);
         return damage;
     }

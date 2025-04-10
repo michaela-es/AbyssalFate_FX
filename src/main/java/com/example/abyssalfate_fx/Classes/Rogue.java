@@ -39,7 +39,6 @@ public class Rogue extends CharacterClass {
             isHidden = false;
         }
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -54,7 +53,6 @@ public class Rogue extends CharacterClass {
         }
 
         setSkillName(3);
-        loseMana(costSkill3);
         return damage;
     }
 }
