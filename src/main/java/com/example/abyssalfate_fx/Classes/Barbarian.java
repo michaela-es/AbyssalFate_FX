@@ -4,7 +4,7 @@ public class Barbarian extends CharacterClass {
 
     boolean rage = false;
     public Barbarian() {
-        super(150, 60, 13, 14, 5);
+        super(150, 60, 13, 14, 3);
 
         costSkill2 = 20;
         costSkill3 = 30;
