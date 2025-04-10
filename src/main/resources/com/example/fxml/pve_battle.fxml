@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.ComputerBattleController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" layoutX="48.0" layoutY="44.0" stroke="WHITE" strokeType="INSIDE" width="498.0" />
-        <Label fx:id="enemyName" layoutX="78.0" layoutY="56.0" prefHeight="74.0" prefWidth="464.0" text="Enemy">
+        <Label id="enemyName" fx:id="enemyName" layoutX="78.0" layoutY="56.0" prefHeight="74.0" prefWidth="464.0" text="Enemy">
             <font>
                 <Font name="Arial Black" size="50.0" />
             </font>
@@ -19,7 +19,7 @@
         <ProgressBar fx:id="barEnemyHP" layoutX="80.0" layoutY="133.0" prefHeight="37.0" prefWidth="425.0" progress="0.0" style="-fx-background-color: RED;" />
         <ProgressBar fx:id="barEnemyMP" layoutX="79.0" layoutY="190.0" prefHeight="37.0" prefWidth="426.0" progress="0.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" layoutX="731.0" layoutY="102.0" stroke="WHITE" strokeType="INSIDE" width="498.0" />
-        <Label fx:id="playerName" layoutX="761.0" layoutY="114.0" prefHeight="74.0" prefWidth="464.0" text="Player">
+        <Label id="playerName" fx:id="playerName" layoutX="761.0" layoutY="114.0" prefHeight="74.0" prefWidth="464.0" text="Player">
             <font>
                 <Font name="Arial Black" size="50.0" />
             </font>
@@ -34,8 +34,8 @@
          <font>
             <Font name="Arial Narrow" size="28.0" />
          </font></TextArea>
-        <Button  fx:id="btnSkill1" layoutX="922.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleSkill1Action" prefHeight="95.0" prefWidth="302.0" text="Button" />
-        <Button  fx:id="btnSkill2" layoutX="922.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSkill2Action" prefHeight="89.0" prefWidth="302.0" text="Button" />
-        <Button  fx:id="btnSkill3" layoutX="920.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleSkill3Action" prefHeight="94.0" prefWidth="306.0" text="Button" />
+        <Button fx:id="btnSkill1" layoutX="922.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleSkill1Action" prefHeight="95.0" prefWidth="302.0" text="Button" />
+        <Button fx:id="btnSkill2" layoutX="922.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSkill2Action" prefHeight="89.0" prefWidth="302.0" text="Button" />
+        <Button fx:id="btnSkill3" layoutX="920.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleSkill3Action" prefHeight="94.0" prefWidth="306.0" text="Button" />
     </children>
 </AnchorPane>

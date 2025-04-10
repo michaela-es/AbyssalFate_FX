@@ -69,14 +69,18 @@ public class ComputerBattleController implements Initializable {
     }
 
     public void setupUI() {
+        enemyName.setText(enemy.getClass().getSimpleName() + "(Enemy)");
+        playerName.setText(player.getClass().getSimpleName());
+
         btnSkill1.setText(player.nameSkill1);
         btnSkill2.setText(player.nameSkill2);
         btnSkill3.setText(player.nameSkill3);
 
+        writeBattleLog("PVE Battle" + "Player is " + player.getClass().getSimpleName() + "\nEnemy is " + enemy.getClass().getSimpleName());
         updateProgressBars();
     }
     public void writeBattleLog(String logMessage) {
-        String filePath = "/logs/BattleLog.txt"; // Adjust based on your setup
+        String filePath = "src/main/java/com/example/abyssalfate_fx/logs/BattleLog";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(logMessage);
