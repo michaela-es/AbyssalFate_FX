@@ -112,6 +112,15 @@ public abstract class CharacterClass {
     }
 
     public int getSavingDC(){ return savingDC; }
+
+    public String getSkillName(){
+        return skillName;
+    }
+
+    public int getHitBonus(){
+        return hitBonus;
+    }
+
     // Setters
 
     public void increaseAC (int ac){
@@ -131,13 +140,7 @@ public abstract class CharacterClass {
     abstract public int skill2();
     abstract public int skill3();
 
-    public String getSkillName(){
-        return skillName;
-    }
 
-    public int getHitBonus(){
-        return hitBonus;
-    }
 
     public void setSkillName(int num){
 
