@@ -16,11 +16,9 @@ public class OpenPVE extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         CharacterSetter entity = CharacterSetter.getInstance();
-//        CharacterClass player = entity.player;
-//        CharacterClass enemy = entity.enemy;
 
         CharacterClass player = new Rogue();
-        CharacterClass enemy =  new Rogue();
+        CharacterClass enemy = new Rogue();
 
         player.setEnemy(enemy);
         enemy.setEnemy(player);
@@ -28,12 +26,18 @@ public class OpenPVE extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(OpenPVE.class.getResource("/com/example/fxml/pve_battle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
+
         ComputerBattleController controller = fxmlLoader.getController();
         controller.setStage(stage);
         controller.setupBattle(player, enemy);
 
         stage.setTitle("Computer Battle");
         stage.setScene(scene);
+
+        // Maximizing the window but not going full screen
+        stage.setMaximized(true);
+
+        // Show the window
         stage.show();
     }
 

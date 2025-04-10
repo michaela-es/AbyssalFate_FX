@@ -11,40 +11,40 @@
 <AnchorPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.ComputerBattleController">
     <children>
         <!-- Enemy Box -->
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" layoutX="48.0" layoutY="44.0" stroke="WHITE" strokeType="INSIDE" width="498.0" />
-        <Label id="enemyName" fx:id="enemyName" layoutX="78.0" layoutY="56.0" prefHeight="74.0" prefWidth="464.0" text="Enemy">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" AnchorPane.leftAnchor="48.0" AnchorPane.topAnchor="44.0" stroke="WHITE" strokeType="INSIDE" width="498.0" />
+        <Label id="enemyName" fx:id="enemyName" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="56.0" prefHeight="74.0" prefWidth="464.0" text="Enemy">
             <font>
                 <Font name="Arial Black" size="50.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="barEnemyHP" layoutX="80.0" layoutY="133.0" prefHeight="37.0" prefWidth="425.0" progress="0.0" style="-fx-background-color: RED;" />
-        <ProgressBar fx:id="barEnemyMP" layoutX="79.0" layoutY="190.0" prefHeight="37.0" prefWidth="426.0" progress="0.0" />
+        <ProgressBar fx:id="barEnemyHP" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="133.0" prefHeight="37.0" prefWidth="425.0" progress="0.0" style="-fx-background-color: RED;" />
+        <ProgressBar fx:id="barEnemyMP" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="190.0" prefHeight="37.0" prefWidth="426.0" progress="0.0" />
 
-        <!-- Player Box (Aligned) -->
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" layoutX="731.0" layoutY="44.0" stroke="WHITE" strokeType="INSIDE" width="498.0" />
-        <Label id="playerName" fx:id="playerName" layoutX="761.0" layoutY="56.0" prefHeight="74.0" prefWidth="464.0" text="Player">
+        <!-- Player Box -->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" AnchorPane.leftAnchor="731.0" AnchorPane.topAnchor="44.0" stroke="WHITE" strokeType="INSIDE" width="498.0" />
+        <Label id="playerName" fx:id="playerName" AnchorPane.leftAnchor="761.0" AnchorPane.topAnchor="56.0" prefHeight="74.0" prefWidth="464.0" text="Player">
             <font>
                 <Font name="Arial Black" size="50.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="barPlayerHP" layoutX="763.0" layoutY="133.0" prefHeight="37.0" prefWidth="425.0" progress="0.0" />
-        <ProgressBar fx:id="barPlayerMP" layoutX="762.0" layoutY="190.0" prefHeight="37.0" prefWidth="426.0" progress="0.0" />
+        <ProgressBar fx:id="barPlayerHP" AnchorPane.leftAnchor="763.0" AnchorPane.topAnchor="133.0" prefHeight="37.0" prefWidth="425.0" progress="0.0" />
+        <ProgressBar fx:id="barPlayerMP" AnchorPane.leftAnchor="762.0" AnchorPane.topAnchor="190.0" prefHeight="37.0" prefWidth="426.0" progress="0.0" />
 
         <!-- Text Areas -->
-        <TextArea fx:id="txtEvents" editable="false" layoutX="44.0" layoutY="342.0" prefHeight="159.0" prefWidth="631.0" style="-fx-background-color: gray;" wrapText="true">
+        <TextArea fx:id="txtEvents" editable="false" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="342.0" prefHeight="159.0" prefWidth="631.0" style="-fx-background-color: gray;" wrapText="true">
             <font>
                 <Font name="Arial Black" size="21.0" />
             </font>
         </TextArea>
-        <TextArea fx:id="txtSkillHover" editable="false" layoutX="43.0" layoutY="531.0" prefHeight="146.0" prefWidth="631.0" style="-fx-background-color: black;" text="Skill Description" wrapText="true">
+        <TextArea fx:id="txtSkillHover" editable="false" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="531.0" prefHeight="146.0" prefWidth="631.0" style="-fx-background-color: black;" text="Skill Description" wrapText="true">
             <font>
                 <Font name="Arial Narrow" size="28.0" />
             </font>
         </TextArea>
 
         <!-- Skill Buttons -->
-        <Button fx:id="btnSkill1" layoutX="922.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleSkill1Action" prefHeight="95.0" prefWidth="302.0" text="Button" />
-        <Button fx:id="btnSkill2" layoutX="922.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSkill2Action" prefHeight="89.0" prefWidth="302.0" text="Button" />
-        <Button fx:id="btnSkill3" layoutX="920.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleSkill3Action" prefHeight="94.0" prefWidth="306.0" text="Button" />
+        <Button fx:id="btnSkill1" AnchorPane.leftAnchor="922.0" AnchorPane.topAnchor="362.0" mnemonicParsing="false" onAction="#handleSkill1Action" prefHeight="95.0" prefWidth="302.0" text="Button" />
+        <Button fx:id="btnSkill2" AnchorPane.leftAnchor="922.0" AnchorPane.topAnchor="473.0" mnemonicParsing="false" onAction="#handleSkill2Action" prefHeight="89.0" prefWidth="302.0" text="Button" />
+        <Button fx:id="btnSkill3" AnchorPane.leftAnchor="920.0" AnchorPane.topAnchor="579.0" mnemonicParsing="false" onAction="#handleSkill3Action" prefHeight="94.0" prefWidth="306.0" text="Button" />
     </children>
 </AnchorPane>
