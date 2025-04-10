@@ -29,8 +29,8 @@ public class OpenPVE extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
         ComputerBattleController controller = fxmlLoader.getController();
-        controller.setupBattle(player, enemy);
         controller.setStage(stage);
+        controller.setupBattle(player, enemy);
 
         stage.setTitle("Computer Battle");
         stage.setScene(scene);

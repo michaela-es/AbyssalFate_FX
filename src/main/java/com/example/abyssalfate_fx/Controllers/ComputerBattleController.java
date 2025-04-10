@@ -200,22 +200,21 @@ public class ComputerBattleController implements Initializable {
         if (isHit) {
             int damage = combat.calcDamage(enemy.chooseSkill());
             player.loseHP(damage);
-            speakEvent("Enemy hits player for " + damage + " damage.");
+            speakEvent("Enemy hits player with " + enemy.getSkillName() + " for " + damage + " damage.");
         } else {
-            speakEvent("Enemy misses player.");
+            speakEvent("Enemy misses.");
         }
         updateProgressBars();
         checkBattleOutcome();
     }
 
     private void checkBattleOutcome() {
-        Stage currentStage = (Stage) btnSkill1.getScene().getWindow();
         if (player.getHp() <= 0) {
             // Player has lost
-            showBattleEndScreen(currentStage, false);
+            showBattleEndScreen(stage, false);
         } else if (enemy.getHp() <= 0) {
             // Player has won
-            showBattleEndScreen(currentStage, true);
+            showBattleEndScreen(stage, true);
         }
     }
     private void showBattleEndScreen(Stage stage, boolean playerWon) {

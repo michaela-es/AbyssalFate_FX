@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import javafx.scene.Parent;
@@ -82,7 +85,19 @@ public class PVPController implements Initializable {
         healthBarPlayer2.getStyleClass().add("progress-bar");
         manaBarPlayer2.getStyleClass().add("progress-bar-mana");
 
+        writeBattleLog("PVP Battle" + "Player1 is " + player1.getClass().getSimpleName() + "\nPlayer2 is " + player2.getClass().getSimpleName());
         updateProgressBars();
+    }
+
+    public void writeBattleLog(String logMessage) {
+        String filePath = "src/main/java/com/example/abyssalfate_fx/logs/BattleLog";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(logMessage);
+            writer.newLine(); // Adds a new line
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
     }
 
     private void hoverFX() {
@@ -173,7 +188,7 @@ public class PVPController implements Initializable {
             player2.loseHP(damage);
             speakEvent("Player 1 hits Player 2 with Skill " + player1.getSkillName() + " for " + damage + " damage.");
         } else {
-            speakEvent("Player 1 misses Player 2.");
+            speakEvent("Player 1 misses with their attack.");
         }
         updateProgressBars();
         player1Turn = false;
@@ -230,13 +245,14 @@ public class PVPController implements Initializable {
             player1.loseHP(damage);
             speakEvent("Player 2 hits Player 1 with Skill " + player2.getSkillName() + " for " + damage + " damage.");
         } else {
-            speakEvent("Player 2 misses Player 1.");
+            speakEvent("Player 2 misses with their attack.");
         }
         updateProgressBars();
         player1Turn = true;
     }
 
     public void speakEvent(String event){
+        writeBattleLog(event);
         eventLog.appendText(event+"\n");
     }
 
