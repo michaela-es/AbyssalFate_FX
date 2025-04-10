@@ -5,7 +5,7 @@ import java.io.*;
 public class UserManager {
     private static final String FILE_PATH = "logs/users.txt";
 
-    public static boolean registerUser(String username, String password) {
+    public static boolean registerUser(String username, String password, String confpass) {
         if (userExists(username)) {
             return false;
         }
