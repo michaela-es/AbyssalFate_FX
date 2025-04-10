@@ -16,6 +16,7 @@ public class Wizard extends CharacterClass {
         descSkill2 = "Deals 5d12 damage. Opponent saves against 16 to take half damage. " + costSkill2 + " mana cost.";
         descSkill3 = "Deals 8d6 damage. Opponent can save against 16 to take half damage. " + costSkill3 + " mana cost.";
 
+        backstory = "Born with a natural affinity for arcane energies, the Wizard dedicated themself to the study of magic from a young age. They devoured ancient texts and practiced intricate spells, their power growing with each passing year. Their talent for manipulating the elements and weaving illusions quickly set them apart. However, a catastrophic magical event or a profound discovery led them to leave their former scholarly life behind. Now, they travel, seeking greater understanding of the arcane arts or perhaps using their potent abilities to aid others in need.";
     }
 
     @Override
