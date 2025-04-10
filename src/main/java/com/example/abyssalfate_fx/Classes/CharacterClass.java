@@ -46,9 +46,6 @@ public abstract class CharacterClass {
     }
 
     // concrete methods
-    public boolean stillAlive(){
-        return hp > 0;
-    }
 
     public int rollToHit(){
         if (hasAdvantage){
