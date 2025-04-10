@@ -16,16 +16,18 @@ public class OpenPVP extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         CharacterSetter entity = CharacterSetter.getInstance();
-//        CharacterClass player = entity.player;
-//        CharacterClass enemy = entity.enemy;
+        CharacterClass player1 = entity.player;
+        CharacterClass player2 = entity.enemy;
 
-        CharacterClass player1 = new Rogue();
-        CharacterClass player2 =  new Rogue();
+        if (player1 == null)
+            player1 = new Rogue();
+        if (player2 == null)
+            player2 =  new Rogue();
 
         player1.setEnemy(player2);
         player2.setEnemy(player1);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/fxml/pvp_battle.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(OpenPVE.class.getResource("/com/example/fxml/pvp_battle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/pvpstyles.css")).toExternalForm());
         PVPController controller = fxmlLoader.getController();

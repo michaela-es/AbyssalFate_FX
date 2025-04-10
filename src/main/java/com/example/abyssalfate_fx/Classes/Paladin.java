@@ -34,7 +34,6 @@ public class Paladin extends CharacterClass {
         damage = rollDamage(2, 10);
         gainAdvantage();
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -44,7 +43,6 @@ public class Paladin extends CharacterClass {
         damage = rollDamage(5, 8);
 
         setSkillName(3);
-        loseMana(costSkill3);
         return damage;
     }
 }

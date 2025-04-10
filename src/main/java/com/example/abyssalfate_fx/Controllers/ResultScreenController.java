@@ -12,22 +12,22 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class EndScreenController {
+public class ResultScreenController {
     @FXML
     private Label lblOutcome;
 
-    public void setOutcome(boolean playerWon) {
-        if (playerWon) {
-            lblOutcome.setText("Congratulations! You have won the battle!");
+    public void setOutcome(boolean player1Won) {
+        if (player1Won) {
+            lblOutcome.setText("Player 1 has won the battle!");
         } else {
-            lblOutcome.setText("You have been defeated. Better luck next time!");
+            lblOutcome.setText("Player 2 has won the battle!");
         }
     }
 
     @FXML
     public void handleReturnToMenu(ActionEvent actionEvent) {
         try {
-            // Close the current end screen
+            // Close the current result screen
             Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             currentStage.close();
 

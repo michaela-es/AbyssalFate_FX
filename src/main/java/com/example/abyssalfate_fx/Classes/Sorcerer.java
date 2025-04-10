@@ -3,7 +3,7 @@ package com.example.abyssalfate_fx.Classes;
 public class Sorcerer extends CharacterClass {
 
     public Sorcerer() {
-        super(70, 120, 13, 16, 5);
+        super(70, 120, 13, 16, 9);
 
         costSkill2 = 40;
         costSkill3 = 80;
@@ -35,7 +35,6 @@ public class Sorcerer extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -58,7 +57,6 @@ public class Sorcerer extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill3);
         setSkillName(3);
         return damage;
     }

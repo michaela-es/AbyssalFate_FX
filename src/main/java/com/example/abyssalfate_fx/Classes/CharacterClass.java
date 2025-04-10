@@ -46,28 +46,14 @@ public abstract class CharacterClass {
     }
 
     // concrete methods
-    public boolean stillAlive(){
-        return hp > 0;
-    }
-
-//    public boolean hasAdvantage(){
-//        return hasAdvantage;
-//    }
 
     public int rollToHit(){
-        return (roller.nextInt(20)+1);
-    }
-
-    public int attackRoll(){
         if (hasAdvantage){
             return rollWithAdvantage();
         } else
-            return rollToHit();
+            return roller.nextInt(20)+1;
     }
 
-    public int calculateDamage(boolean isCritical, int skillDamage) {
-        return isCritical ? skillDamage * 2 : skillDamage;
-    }
     public boolean savingThrow(int enemyDC){
         return roller.nextInt(20)+1 >= enemyDC;
     }
@@ -126,11 +112,17 @@ public abstract class CharacterClass {
     }
 
     public int getSavingDC(){ return savingDC; }
+
+    public String getSkillName(){
+        return skillName;
+    }
+
+    public int getHitBonus(){
+        return hitBonus;
+    }
+
     // Setters
 
-    public void setHP(int hp){
-        hp = 0;
-    }
     public void increaseAC (int ac){
         armorClass+=ac;
     }
@@ -148,13 +140,7 @@ public abstract class CharacterClass {
     abstract public int skill2();
     abstract public int skill3();
 
-    public String getSkillName(){
-        return skillName;
-    }
 
-    public int getHitBonus(){
-        return hitBonus;
-    }
 
     public void setSkillName(int num){
 

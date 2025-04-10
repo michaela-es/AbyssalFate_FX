@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 
+import java.io.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,6 +55,11 @@ public class ComputerBattleController implements Initializable {
     public CharacterClass player;
     public CharacterClass enemy;
     public Combat combat = new Combat();
+    private Stage stage;
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
     public void setupBattle(CharacterClass player, CharacterClass enemy) {
         this.player = player;
@@ -62,14 +68,27 @@ public class ComputerBattleController implements Initializable {
         hoverFX();
     }
 
-    public void setupUI(){
+    public void setupUI() {
+        enemyName.setText(enemy.getClass().getSimpleName() + "(Enemy)");
+        playerName.setText(player.getClass().getSimpleName());
+
         btnSkill1.setText(player.nameSkill1);
         btnSkill2.setText(player.nameSkill2);
         btnSkill3.setText(player.nameSkill3);
 
+        writeBattleLog("PVE Battle" + "Player is " + player.getClass().getSimpleName() + "\nEnemy is " + enemy.getClass().getSimpleName());
         updateProgressBars();
     }
+    public void writeBattleLog(String logMessage) {
+        String filePath = "src/main/java/com/example/abyssalfate_fx/logs/BattleLog";
 
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(logMessage);
+            writer.newLine(); // Adds a new line
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
     private void updateProgressBars() {
         double playerProgress = (double) player.getHp() / player.getMaxHp();
         double enemyProgress = (double) enemy.getHp() / enemy.getMaxHp();
@@ -89,12 +108,22 @@ public class ComputerBattleController implements Initializable {
         barEnemyMP.getStyleClass().add("progress-bar-mana");
     }
 
-    public void speakEvent(String event){
-        txtEvents.setText(event);
+    public void speakEvent(String event) {
+        writeBattleLog(event);
+        final int MAX_LINES = 10;
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> txtEvents.setText(""));
-        delay.play();
+        txtEvents.appendText(event + "\n");
+        String[] lines = txtEvents.getText().split("\n");
+
+        if (lines.length > MAX_LINES) {
+            StringBuilder newText = new StringBuilder();
+
+            for (int i = lines.length - MAX_LINES; i < lines.length; i++) {
+                newText.append(lines[i]).append("\n");
+            }
+
+            txtEvents.setText(newText.toString());
+        }
     }
 
     @FXML
@@ -105,7 +134,7 @@ public class ComputerBattleController implements Initializable {
         boolean isHit = combat.isHit(totalRoll, enemy.getAC());
 
         if (isHit) {
-            int damage = combat.calcDamage(player.skill1());
+            int damage = player.skill1();
             enemy.loseHP(damage);
             speakEvent("Player hits with " + player.nameSkill1 + " for " + damage + " damage.");
         } else {
@@ -118,14 +147,19 @@ public class ComputerBattleController implements Initializable {
 
     @FXML
     private void handleSkill2Action() {
+
+
         if (player.getMana() >= player.costSkill2) {
+
+            player.loseMana(player.costSkill2);
+
             int baseroll = player.rollToHit();
             combat.checkCrit(baseroll);
             int totalRoll = combat.totalRoll(baseroll, player.getHitBonus());
             boolean isHit = combat.isHit(totalRoll, enemy.getAC());
 
             if (isHit) {
-                int damage = combat.calcDamage(player.skill2());
+                int damage = player.skill2();
                 enemy.loseHP(damage);
                 speakEvent("Player hits with " + player.nameSkill2 + " for " + damage + " damage.");
             } else {
@@ -141,14 +175,16 @@ public class ComputerBattleController implements Initializable {
 
     @FXML
     private void handleSkill3Action() {
+
         if (player.getMana() >= player.costSkill3) {
+            player.loseMana(player.costSkill3);
             int baseroll = player.rollToHit();
             combat.checkCrit(baseroll);
             int totalRoll = combat.totalRoll(baseroll, player.getHitBonus());
             boolean isHit = combat.isHit(totalRoll, enemy.getAC());
 
             if (isHit) {
-                int damage = combat.calcDamage(player.skill3());
+                int damage = player.skill3();
                 enemy.loseHP(damage);
                 speakEvent("Player hits with " + player.nameSkill3 + " for " + damage + " damage.");
             } else {
@@ -171,36 +207,33 @@ public class ComputerBattleController implements Initializable {
         if (isHit) {
             int damage = combat.calcDamage(enemy.chooseSkill());
             player.loseHP(damage);
-            speakEvent("Enemy hits player for " + damage + " damage.");
+            speakEvent("Enemy hits player with " + enemy.getSkillName() + " for " + damage + " damage.");
         } else {
-            speakEvent("Enemy misses player.");
+            speakEvent("Enemy misses.");
         }
         updateProgressBars();
         checkBattleOutcome();
-
     }
 
     private void checkBattleOutcome() {
         if (player.getHp() <= 0) {
             // Player has lost
-            showBattleEndScreen(false);
+            writeBattleLog("Player lost");
+            showBattleEndScreen(stage, false);
         } else if (enemy.getHp() <= 0) {
             // Player has won
-            showBattleEndScreen(true);
+            writeBattleLog("Player won");
+            showBattleEndScreen(stage, true);
         }
     }
-
-    private void showBattleEndScreen(boolean playerWon) {
-        // Load the appropriate screen based on the outcome
+    private void showBattleEndScreen(Stage stage, boolean playerWon) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/EndScreen.fxml"));
             Parent root = loader.load();
 
-            // Assuming you have an EndScreenController to handle the end screen logic
             EndScreenController endScreenController = loader.getController();
             endScreenController.setOutcome(playerWon);
 
-            Stage stage = (Stage) enemyName.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -234,5 +267,4 @@ public class ComputerBattleController implements Initializable {
     private void clearSkillDescription() {
         txtSkillHover.setText("");
     }
-
 }

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class HelloApplication extends Application {
+public class OpenPVE extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -25,10 +25,11 @@ public class HelloApplication extends Application {
         player.setEnemy(enemy);
         enemy.setEnemy(player);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/fxml/pve_battle.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(OpenPVE.class.getResource("/com/example/fxml/pve_battle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
         ComputerBattleController controller = fxmlLoader.getController();
+        controller.setStage(stage);
         controller.setupBattle(player, enemy);
 
         stage.setTitle("Computer Battle");

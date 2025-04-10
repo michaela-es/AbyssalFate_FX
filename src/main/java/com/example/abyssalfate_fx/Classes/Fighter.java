@@ -10,16 +10,15 @@ public class Fighter extends CharacterClass {
 
         nameSkill1 = "Action Surge";
         nameSkill2 = "Battle Maneuver";
-        nameSkill3= "Defensive Flourish";
+        nameSkill3 = "Defensive Flourish";
 
         descSkill1 = "Deals 2d8 damage. Restores 15 mana.";
         descSkill2 = "Deals 4d8 damage to opponent. Grants advantage. " + costSkill2 + " mana cost.";
-        descSkill3 = "Deals 2d12 damage. Gains +4 AC. " + costSkill3 +" mana cost";
+        descSkill3 = "Deals 2d12 damage. Gains +4 AC. " + costSkill3 + " mana cost";
 
-        backstory = "Nothing stirs the fighter more than the thrill of the battle. As for why they are here, perhaps it is the strange, whispering crimson sword in their hand's doing.";
+        backstory = "As the eldest child, she was groomed from an early age to become the kingdom’s strongest protector. While her younger brother, Vaelrik, was expected to follow a scholarly path, Seraphina embraced the art of war, training relentlessly under the kingdom’s finest warriors. She wielded a spear like an extension of her own body and carried an indomitable spirit that made her beloved by both the people and the army she led. However, tragedy struck when Vaelrik vanished during an expedition near the Abyssal Rift, a cursed land where dark forces festered.";
     }
-
-    @Override
+        @Override
     public int skill1() {
 
         gainMana(15);
@@ -33,7 +32,6 @@ public class Fighter extends CharacterClass {
         damage = rollDamage(4, 8);
         gainAdvantage();
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -44,7 +42,6 @@ public class Fighter extends CharacterClass {
 
         increaseAC(4);
         setSkillName(3);
-        loseMana(costSkill3);
         return damage;
     }
 

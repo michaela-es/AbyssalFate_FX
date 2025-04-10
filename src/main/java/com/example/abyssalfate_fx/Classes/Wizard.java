@@ -9,8 +9,8 @@ public class Wizard extends CharacterClass {
         costSkill3 = 30;
 
         nameSkill1 = "Esoteric Ritual";
-        nameSkill2 = "Lightning Bolt";
-        nameSkill3= "Fireball";
+        nameSkill2 = "Shadow Piercer";
+        nameSkill3= "Ravaging Tide";
 
         descSkill1 = "Deals 1d4 damage. Restore 15 - 20 mana.";
         descSkill2 = "Deals 5d12 damage. Opponent saves against 16 to take half damage. " + costSkill2 + " mana cost.";
@@ -32,7 +32,6 @@ public class Wizard extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -55,7 +54,6 @@ public class Wizard extends CharacterClass {
 
         damage = finalDamage(damage);
 
-        loseMana(costSkill3);
         setSkillName(3);
         return damage;
     }
