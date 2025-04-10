@@ -65,6 +65,7 @@ public class PVPController implements Initializable {
         this.player1 = player1;
         this.player2 = player2;
         setupUI();
+        updateButtonStates();
         hoverFX();
     }
 
@@ -165,6 +166,24 @@ public class PVPController implements Initializable {
         }
     }
 
+    private void endTurn() {
+        player1Turn = !player1Turn; // This single line properly toggles the turn
+        updateButtonStates();
+        speakEvent(player1Turn ? "Player 1's turn!" : "Player 2's turn!");
+    }
+
+    private void updateButtonStates() {
+        // Player 1 buttons
+        btnP1Skill1.setDisable(!player1Turn);
+        btnP1Skill2.setDisable(!player1Turn);
+        btnP1Skill3.setDisable(!player1Turn);
+
+        // Disable player 2 buttons
+        btnP2Skill1.setDisable(player1Turn);
+        btnP2Skill2.setDisable(player1Turn);
+        btnP2Skill3.setDisable(player1Turn);
+    }
+
     private void handlePlayer1Attack(int skillNumber) {
         int baseroll = player1.rollToHit();
         combat.checkCrit(baseroll);
@@ -193,7 +212,8 @@ public class PVPController implements Initializable {
             speakEvent("Player 1 misses with their attack.");
         }
         updateProgressBars();
-        player1Turn = false;
+
+        endTurn();
 
     }
 
@@ -252,7 +272,7 @@ public class PVPController implements Initializable {
             speakEvent("Player 2 misses with their attack.");
         }
         updateProgressBars();
-        player1Turn = true;
+        endTurn();
     }
 
     public void speakEvent(String event){
