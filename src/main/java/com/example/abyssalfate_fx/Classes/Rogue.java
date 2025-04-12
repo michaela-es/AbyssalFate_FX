@@ -16,10 +16,11 @@ public class Rogue extends CharacterClass {
 
         descSkill1 = "Deals 1d6 damage. Gains 'Hidden' state. Restores 10 - 15 mana.";
         descSkill2 = "Attacks opponent for 4d6 damage. Additional 4d6 damage if in 'Hidden' state." + costSkill2 + " mana cost.";
-        descSkill3 = "Deals 6d6 damage. If the opponent is below 40% health and in “Hidden” state, deals 12d6 damage instead. " + costSkill3 +" mana cost";
+        descSkill3 = "Deals 6d6 damage. If opponent is below 40% health and in “Hidden” state, deals 12d6 damage instead. " + costSkill3 +" mana cost";
 
-        backstory = "Born in the slums of Duskwatch, Kaevan never knew nobility, only survival. Orphaned as a child, he was taken in by the Crimson Veil, an elite guild of assassins that operated in the shadows of Elarion. The guild did not serve coins alone; they were the hidden dagger of the Elarion, eliminating threats to the kingdom long before they reached the throne. Under the ruthless training of Lady Nyx, Kaevan became a master of silent death, excelling in stealth, deception, and the art of the blade. \n";
+        backstory = "Born in a sprawling urban environment, the Rogue learned to survive by their wits and nimble fingers. Orphaned at a young age, they navigated the shadows, picking pockets and evading authority. Their skills in stealth and deception grew with each successful endeavor, making them a valuable asset to the local underworld. However, a botched job involving a powerful organization forced them to flee, leaving behind their familiar life. Now, they wander, using their unique talents for coin or perhaps a greater purpose, always wary of the enemies they've made.";
     }
+
     @Override
     public int skill1() {
 
@@ -39,6 +40,7 @@ public class Rogue extends CharacterClass {
             isHidden = false;
         }
 
+        loseMana(costSkill2);
         setSkillName(2);
         return damage;
     }
@@ -53,6 +55,7 @@ public class Rogue extends CharacterClass {
         }
 
         setSkillName(3);
+        loseMana(costSkill3);
         return damage;
     }
 }
