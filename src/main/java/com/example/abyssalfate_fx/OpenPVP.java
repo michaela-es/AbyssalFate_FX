@@ -38,7 +38,7 @@ public class OpenPVP extends Application {
         stage.show();
     }
 
-    //?KNJN
+    //?Kmkm
     public static void main(String[] args) {
         launch();
     }
