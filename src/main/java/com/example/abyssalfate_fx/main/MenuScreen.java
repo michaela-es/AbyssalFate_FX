@@ -29,9 +29,12 @@ public class MenuScreen {
             VBox homeRoot = loader.load();
             Scene homeScene = new Scene(homeRoot, 1820, 980);
 
+            HomeScreen homeController = loader.getController();
+
             Stage stage = (Stage) startButton.getScene().getWindow();
+            homeController.setStage(stage);
+
             stage.setScene(homeScene);
-            stage.setFullScreen(true);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

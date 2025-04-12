@@ -1,57 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
-<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.abyssalfate_fx.main.CreditsScreen"
-      alignment="CENTER" spacing="30"
-      style="-fx-background-image: url('file:/C:/Users/Acer/Github/AbyssalFate_FX/src/main/resources/menu_background.gif'); -fx-background-size: cover; -fx-padding: 50;">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-    <Label text="Developers" style="-fx-text-fill: white;">
-        <font>
-            <Font name="Consolas Bold" size="28" />
-        </font>
-    </Label>
+<VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="1820.0" prefWidth="980.0" spacing="20" style="-fx-background-image: url('file:/C:/Users/Acer/Github/AbyssalFate_FX/src/main/resources/menu_background.gif'); -fx-background-size: cover; -fx-padding: 50;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.main.CreditsScreen">
 
-    <HBox spacing="40" alignment="CENTER">
-        <VBox alignment="CENTER" spacing="10">
-            <ImageView fx:id="imageView" fitHeight="100" fitWidth="100">
-                <image>
-                    <Image url="@/lerah.jpg" />
-                </image>
-            </ImageView>
-
-            <Label text="Kaevan – Lead Dev" style="-fx-text-fill: white;" />
-        </VBox>
-        <VBox alignment="CENTER" spacing="10">
-            <ImageView fx:id="imageView2" fitHeight="100" fitWidth="100">
-                <image>
-                    <Image url="@/max.jpg" />
-                </image>
-            </ImageView>
-            <Label text="Aeris – UI Designer" style="-fx-text-fill: white;" />
-        </VBox>
+    <HBox alignment="TOP_LEFT" fillHeight="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="43.0" prefWidth="1430.0" VBox.vgrow="NEVER">
+        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleBackToMenu" prefHeight="32.0" prefWidth="58.0" style="-fx-background-color: #004b5a; -fx-text-fill: white;" text="Back">
+            <HBox.margin>
+                <Insets left="10.0" top="10.0" />
+            </HBox.margin>
+         <font>
+            <Font name="Consolas Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="0.9882352948188782" blue="0.6352941393852234" />
+               </color>
+            </DropShadow>
+         </effect>
+        </Button>
     </HBox>
 
-    <Label text="Inspirations &amp; Tools" style="-fx-text-fill: white;">
-        <font>
-            <Font name="Consolas Bold" size="24" />
-        </font>
-    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="1669.0" prefWidth="910.0" spacing="30" VBox.vgrow="ALWAYS">
+        <Label style="-fx-text-fill: white;" text="Developers">
+            <font>
+                <Font name="OCR A Extended" size="31.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+         <effect>
+            <Bloom threshold="0.83" />
+         </effect>
+        </Label>
 
-    <VBox spacing="10">
-        <Label text="• Inspired by: Assassin's Creed, Hollow Knight" style="-fx-text-fill: white;" />
-        <Label text="• Engine: JavaFX + SceneBuilder" style="-fx-text-fill: white;" />
-        <Label text="• Art &amp; Music: Generated &amp; Licensed Assets" style="-fx-text-fill: white;" />
+        <HBox alignment="CENTER" spacing="40">
+            <VBox alignment="CENTER" spacing="10">
+                <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@/lerah.jpg" />
+                    </image>
+                </ImageView>
+
+                <Label style="-fx-text-fill: white;" text="Kaevan – Lead Dev" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="10">
+                <ImageView fx:id="imageView2" fitHeight="100.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@/max.jpg" />
+                    </image>
+                </ImageView>
+                <Label style="-fx-text-fill: white;" text="Aeris – UI Designer" />
+            </VBox>
+        </HBox>
+
+        <Label style="-fx-text-fill: white;" text="Inspirations &amp; Tools">
+            <font>
+                <Font name="OCR A Extended" size="24.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+        </Label>
+
+        <VBox alignment="CENTER" spacing="10">
+            <Label style="-fx-text-fill: white;" text="• Inspired by: Assassin's Creed, Hollow Knight" />
+            <Label style="-fx-text-fill: white;" text="• Engine: JavaFX + SceneBuilder" />
+            <Label style="-fx-text-fill: white;" text="• Art &amp; Music: Generated &amp; Licensed Assets" />
+        </VBox>
     </VBox>
-
-    <Button text="Back to Menu" onAction="#handleBackToMenu"
-            style="-fx-background-color: #004b5a; -fx-text-fill: white;" />
+    <padding>
+        <Insets top="50.0" />
+    </padding>
 
 </VBox>
