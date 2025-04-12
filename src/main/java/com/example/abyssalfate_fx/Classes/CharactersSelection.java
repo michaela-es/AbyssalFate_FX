@@ -1,42 +1,50 @@
 package com.example.abyssalfate_fx.Classes;
 
+
+
 public class CharactersSelection {
-    private CharacterClass character; // Hold a reference to a CharacterClass instance
+    private String name;
+    private String imagePath;
+    private boolean unlocked;
+    private int rarity;
+    private int maxHp;
+    private int attack;
+    private int defense;
     private String story;
 
-    // MODIFY THE CONSTRUCTOR
-    public CharactersSelection(CharacterClass character, String story) {
-        this.character = character;
+    public CharactersSelection(String name, String imagePath, boolean unlocked, int rarity,
+                               int maxHp, int attack, int defense, String story) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.unlocked = unlocked;
+        this.rarity = rarity;
+        this.maxHp = maxHp;
+        this.attack = attack;
+        this.defense = defense;
         this.story = story;
     }
 
-    // Getters
     public String getName() {
-        return character.getClass().getSimpleName(); // Get the simple class name
+        return name;
     }
 
     public String getImagePath() {
-        // You can return a default image path or implement a method in CharacterClass to get an image path
-        return "res/default.png"; // Placeholder
+        return imagePath;
     }
 
     public int getMaxHp() {
-        return character.getMaxHp(); // Get max HP from CharacterClass
+        return maxHp;
     }
 
     public int getAttack() {
-        return character.getHitBonus(); // Assuming hit bonus is used as attack
+        return attack;
     }
 
     public int getDefense() {
-        return character.getAC(); // Get Armor Class as defense
+        return defense;
     }
 
     public String getStory() {
-        return story; // Return the story
-    }
-
-    public CharacterClass getCharacter() {
-        return character; // Return the CharacterClass instance
+        return story;
     }
 }
