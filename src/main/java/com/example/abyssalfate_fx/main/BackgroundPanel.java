@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class BackgroundPanel extends JPanel {
     private Image backgroundImage;
-
+//
     public BackgroundPanel(String imagePath) {
         try {
             backgroundImage = new ImageIcon(getClass().getResource(imagePath)).getImage();

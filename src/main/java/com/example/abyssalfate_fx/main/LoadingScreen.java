@@ -29,7 +29,7 @@ public class LoadingScreen extends JFrame {
 
         BackgroundPanel background = new BackgroundPanel("/abyssal fate.gif");
         background.setLayout(new BorderLayout());
-
+//
         JLabel titleLabel = new JLabel("Abyssal Fate");
         titleLabel.setFont(gameFont);
         titleLabel.setForeground(Color.WHITE);
