@@ -26,7 +26,7 @@
     -fx-border-color: #ffee58;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
-    -fx-alignment: center;
+    -fx-alignment: CENTER_LEFT; /* Changed to left alignment */
 }
 
 /* Button styling */
@@ -70,6 +70,15 @@
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.4), 2, 0.0, 1, 1);
+}
+
+/* Enemy Mana ProgressBar Border (Override Accent) */
+.enemy-mana-border {
+    -fx-border-color: red;
+    -fx-border-width: 5px;
+    -fx-border-radius: 5px;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
 
 /* Label styling */
