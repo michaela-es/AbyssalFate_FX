@@ -1,7 +1,8 @@
 module com.example.abyssalfate_fx {
     requires javafx.fxml;
     requires javafx.web;
-    requires java.desktop;
+    requires javafx.media;
+    requires javafx.swing;
 
     opens com.example.abyssalfate_fx.Controllers to javafx.fxml;
     exports com.example.abyssalfate_fx;

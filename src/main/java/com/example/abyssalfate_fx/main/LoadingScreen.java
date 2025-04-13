@@ -6,19 +6,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.InputStream;
 import java.io.IOException;
-import java.awt.FontFormatException;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.net.URL;
 
 public class LoadingScreen extends JFrame {
 
     private Font gameFont;
+    private MediaPlayer mediaPlayer;
 
     public LoadingScreen() {
+        // Initialize JavaFX runtime (required for Media)
+        new JFXPanel(); // Initializes JavaFX environment
+
         setTitle("Abyssal Fate - Loading...");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -29,7 +37,7 @@ public class LoadingScreen extends JFrame {
 
         BackgroundPanel background = new BackgroundPanel("/abyssal fate.gif");
         background.setLayout(new BorderLayout());
-//
+
         JLabel titleLabel = new JLabel("Abyssal Fate");
         titleLabel.setFont(gameFont);
         titleLabel.setForeground(Color.WHITE);
@@ -89,6 +97,9 @@ public class LoadingScreen extends JFrame {
         setContentPane(background);
         setVisible(true);
 
+        // Start background music
+        playBackgroundMusic("/music/Abyss.mp3");
+
         Timer timer = new Timer(100, new ActionListener() {
             int counter = 0;
             @Override
@@ -100,6 +111,9 @@ public class LoadingScreen extends JFrame {
                 } else {
                     ((Timer) e.getSource()).stop();
                     dispose(); // Close the loading screen
+                    if (mediaPlayer != null) {
+                        mediaPlayer.stop(); // Stop music when done
+                    }
 
                     // Launch JavaFX HomeScreen
                     Platform.runLater(() -> {
@@ -134,9 +148,27 @@ public class LoadingScreen extends JFrame {
         }
     }
 
+    private void playBackgroundMusic(String path) {
+        Platform.runLater(() -> {
+            try {
+                URL resource = getClass().getResource(path);
+                if (resource == null) {
+                    System.err.println("Audio file not found: " + path);
+                    return;
+                }
+                Media media = new Media(resource.toString());
+                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Loop
+                mediaPlayer.play();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     public static void main(String[] args) {
-        // Launch JavaFX Toolkit (needed if you're calling JavaFX from Swing)
-        javafx.application.Platform.startup(() -> {});
+        // Launch JavaFX Toolkit
+        Platform.startup(() -> {});
         SwingUtilities.invokeLater(() -> new LoadingScreen());
     }
 }
