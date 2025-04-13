@@ -5,25 +5,25 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane depthTest="ENABLE" nodeOrientation="RIGHT_TO_LEFT" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.ComputerBattleController">
+<AnchorPane depthTest="ENABLE" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.Controllers.ComputerBattleController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" stroke="WHITE" strokeType="INSIDE" width="498.0" AnchorPane.leftAnchor="48.0" AnchorPane.topAnchor="44.0" />
-        <Label id="enemyName" fx:id="enemyName" prefHeight="74.0" prefWidth="464.0" text="Enemy" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="56.0">
+        <Label id="enemyName" fx:id="enemyName" prefHeight="74.0" prefWidth="434.0" text="Enemy" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="56.0">
             <font>
                 <Font name="Arial Black" size="50.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="barEnemyHP" prefHeight="37.0" prefWidth="425.0" progress="0.0" style="-fx-background-color: RED;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="133.0" />
-        <ProgressBar fx:id="barEnemyMP" prefHeight="37.0" prefWidth="426.0" progress="0.0" styleClass="progress-bar-mana, enemy-mana-border" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="190.0" />
+        <ProgressBar fx:id="barEnemyHP" prefHeight="37.0" prefWidth="434.0" progress="0.0" style="-fx-background-color: RED;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="133.0" />
+        <ProgressBar fx:id="barEnemyMP" prefHeight="37.0" prefWidth="434.0" progress="0.0" styleClass="progress-bar-mana, enemy-mana-border" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="190.0" />
 
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" stroke="WHITE" strokeType="INSIDE" width="498.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="44.0" />
-        <Label id="playerName" fx:id="playerName" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="464.0" text="Rogue" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="56.0">
+        <Label id="playerName" fx:id="playerName" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="441.0" text="Rogue" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="56.0">
             <font>
                 <Font name="Arial Black" size="50.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="barPlayerHP" prefHeight="37.0" prefWidth="425.0" progress="0.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="133.0" />
-        <ProgressBar fx:id="barPlayerMP" prefHeight="37.0" prefWidth="426.0" progress="0.0" styleClass="progress-bar-mana" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="190.0" />
+        <ProgressBar fx:id="barPlayerHP" prefHeight="37.0" prefWidth="441.0" progress="0.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="133.0" />
+        <ProgressBar fx:id="barPlayerMP" prefHeight="37.0" prefWidth="441.0" progress="0.0" styleClass="progress-bar-mana" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="190.0" />
 
         <TextArea fx:id="txtEvents" editable="false" prefHeight="159.0" prefWidth="631.0" style="-fx-background-color: gray;" wrapText="true" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="342.0">
             <font>
