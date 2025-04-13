@@ -38,7 +38,6 @@ public class OpenPVP extends Application {
         stage.show();
     }
 
-    //?Km
     public static void main(String[] args) {
         launch();
     }

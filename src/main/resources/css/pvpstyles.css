@@ -84,3 +84,16 @@
     -fx-border-color: #ffcc00; /* Bright yellow border on focus */
 }
 
+
+#nameP1 {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Style for the nameP2 TextArea */
+
+
+#nameP2 {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
