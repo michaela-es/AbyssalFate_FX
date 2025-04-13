@@ -5,10 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import java.io.IOException;
+//for sounds
+import javafx.fxml.Initializable;
+import javafx.scene.media.AudioClip;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MenuScreen {
+public class MenuScreen implements Initializable{
 
     @FXML
     private Button startButton;
@@ -19,12 +25,15 @@ public class MenuScreen {
 
     private Stage primaryStage;
 
+    private AudioClip buttonClickSound;
+
     public void setStage(Stage stage) {
         this.primaryStage = stage;
     }
 
     @FXML
     private void handleStartGame() {
+        playSoundEffect();
         try {
             Stage stage = (Stage) startButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/loading.fxml"));
@@ -46,11 +55,12 @@ public class MenuScreen {
 
     @FXML
     private void handleCredits() {
+        playSoundEffect();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/credits.fxml"));
             Parent creditsRoot = loader.load();
             Scene currentScene = creditsButton.getScene();
-            Scene creditsScene = new Scene(creditsRoot, currentScene.getWidth(), currentScene.getHeight()); // Use current size
+            Scene creditsScene = new Scene(creditsRoot, currentScene.getWidth(), currentScene.getHeight());
 
             CreditsScreen creditsController = loader.getController();
             Stage stage = (Stage) currentScene.getWindow();
@@ -61,12 +71,10 @@ public class MenuScreen {
             }
 
             if (creditsController != null) {
-                // Pass the stage reference to the CreditsScreen controller
                 creditsController.setStage(stage);
             } else {
                 System.err.println("Warning: CreditsScreen controller instance is null.");
             }
-            // --- End NPE Fix ---
 
             stage.setScene(creditsScene);
 
@@ -82,11 +90,31 @@ public class MenuScreen {
 
     @FXML
     private void handleExit() {
+        playSoundEffect();
         Stage stage = (Stage) exitButton.getScene().getWindow();
         if (stage != null) {
             stage.close();
-        } else {
-            System.err.println("Stage is null in handleExit.");
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            URL sound = getClass().getResource("/sounds/click.wav");
+
+            if (sound != null) {
+                buttonClickSound = new AudioClip(sound.toExternalForm());
+            } else {
+                System.err.println("Error: Could not find button click sound file in " + getClass().getSimpleName() + "!");
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading button click sound in " + getClass().getSimpleName() + ": " + e.getMessage());
+        }
+    }
+
+    private void playSoundEffect() {
+        if (buttonClickSound != null) {
+            buttonClickSound.play();
         }
     }
 }

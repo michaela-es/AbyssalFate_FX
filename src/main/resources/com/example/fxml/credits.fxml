@@ -8,27 +8,28 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="1820.0" prefWidth="980.0" spacing="20" style="-fx-background-image: url('file:/C:/Users/Acer/Github/AbyssalFate_FX/src/main/resources/menu_background.gif'); -fx-background-size: cover; -fx-padding: 50;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.main.CreditsScreen">
+<VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="1820.0" prefWidth="980.0" spacing="20" style="-fx-background-image: url('file:/C:/Users/Acer/Github/Abyssal-Fate_new/res/menu_background.gif');  -fx-background-size: cover; -fx-padding: 50;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.main.CreditsScreen">
 
     <HBox alignment="TOP_LEFT" fillHeight="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="43.0" prefWidth="1430.0" VBox.vgrow="NEVER">
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleBackToMenu" prefHeight="32.0" prefWidth="58.0" style="-fx-background-color: #004b5a; -fx-text-fill: white;" text="Back">
             <HBox.margin>
                 <Insets left="10.0" top="10.0" />
             </HBox.margin>
-         <font>
-            <Font name="Consolas Bold" size="12.0" />
-         </font>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="1.0" green="0.9882352948188782" blue="0.6352941393852234" />
-               </color>
-            </DropShadow>
-         </effect>
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.9882352948188782" blue="0.6352941393852234" />
+                    </color>
+                </DropShadow>
+            </effect>
         </Button>
     </HBox>
 
@@ -40,48 +41,111 @@
             <VBox.margin>
                 <Insets top="30.0" />
             </VBox.margin>
-         <effect>
-            <Bloom threshold="0.83" />
-         </effect>
+            <effect>
+                <Bloom threshold="0.83" />
+            </effect>
         </Label>
 
-        <HBox alignment="CENTER" spacing="40">
-            <VBox alignment="CENTER" spacing="10">
-                <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="100.0">
+        <TilePane alignment="CENTER" hgap="50" nodeOrientation="LEFT_TO_RIGHT" prefColumns="3" vgap="30">
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+            <VBox alignment="CENTER" prefHeight="153.0" prefWidth="229.0" spacing="10">
+                <ImageView fitHeight="100.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@/michaela.jpg" />
+                    </image>
+                </ImageView>
+                <Label text="Michaela Ma. Alexa D. Estrera" textFill="WHITE">
+                    <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label style="-fx-text-fill: white;" text=" Lead Developer and Project Manager">
+                    <font>
+                        <Font name="Consolas" size="12.0" />
+                    </font></Label>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="153.0" prefWidth="229.0" spacing="10">
+                <ImageView fitHeight="100.0" fitWidth="100.0">
                     <image>
                         <Image url="@/lerah.jpg" />
                     </image>
                 </ImageView>
-
-                <Label style="-fx-text-fill: white;" text="Kaevan – Lead Dev" />
+                <Label text="Lerah A. Caones" textFill="WHITE">
+                   <font>
+                      <Font name="Consolas Bold" size="14.0" />
+                   </font>
+                </Label>
+                    <Label style="-fx-text-fill: white;" text=" Lead Developer and UI Developer">
+                   <font>
+                      <Font name="Consolas" size="12.0" />
+                   </font></Label>
             </VBox>
-            <VBox alignment="CENTER" spacing="10">
-                <ImageView fx:id="imageView2" fitHeight="100.0" fitWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="153.0" prefWidth="229.0" spacing="10">
+                <ImageView fitHeight="100.0" fitWidth="100.0">
                     <image>
                         <Image url="@/max.jpg" />
                     </image>
                 </ImageView>
-                <Label style="-fx-text-fill: white;" text="Aeris – UI Designer" />
+                <Label text="Danielle Maxine P. Ocampo" textFill="WHITE">
+                    <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label style="-fx-text-fill: white;" text=" Character Artist and UX Designer">
+                    <font>
+                        <Font name="Consolas" size="12.0" />
+                    </font></Label>
             </VBox>
-        </HBox>
-
-        <Label style="-fx-text-fill: white;" text="Inspirations &amp; Tools">
-            <font>
-                <Font name="OCR A Extended" size="24.0" />
-            </font>
-            <VBox.margin>
-                <Insets top="30.0" />
-            </VBox.margin>
-        </Label>
-
+            <VBox alignment="CENTER" prefHeight="153.0" prefWidth="229.0" spacing="10">
+                <ImageView fitHeight="100.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@/erica.jpg" />
+                    </image>
+                </ImageView>
+                <Label text="Erica Y. Dabalos" textFill="WHITE">
+                    <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label style="-fx-text-fill: white;" text=" Character Artist and UX Designer">
+                    <font>
+                        <Font name="Consolas" size="12.0" />
+                    </font></Label>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="153.0" prefWidth="229.0" spacing="10">
+                <ImageView fitHeight="100.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@/clyde.jpg" />
+                    </image>
+                </ImageView>
+                <Label text="Clyde C. Benolirao" textFill="WHITE">
+                    <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label style="-fx-text-fill: white;" text=" Character Artist and UX Designer">
+                    <font>
+                        <Font name="Consolas" size="12.0" />
+                    </font></Label>
+            </VBox>
+        </TilePane> <Label style="-fx-text-fill: white;" text="Inspirations &amp; Tools">
+        <font>
+            <Font name="OCR A Extended" size="24.0" />
+        </font>
+        <VBox.margin>
+            <Insets top="30.0" />
+        </VBox.margin>
+    </Label>
         <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-text-fill: white;" text="• Inspired by: Assassin's Creed, Hollow Knight" />
-            <Label style="-fx-text-fill: white;" text="• Engine: JavaFX + SceneBuilder" />
-            <Label style="-fx-text-fill: white;" text="• Art &amp; Music: Generated &amp; Licensed Assets" />
+            <Label style="-fx-text-fill: white;" text="Inspired by: Dungeons &amp; Dragons " />
+            <Label style="-fx-text-fill: white;" text="Engine: IntelliJ + JavaFX + SceneBuilder" />
+            <Label style="-fx-text-fill: white;" text=" Art &amp; Music: Generated &amp; Licensed Assets" />
         </VBox>
-    </VBox>
-    <padding>
-        <Insets top="50.0" />
-    </padding>
+
+    </VBox> <padding>
+    <Insets top="50.0" />
+</padding>
 
 </VBox>

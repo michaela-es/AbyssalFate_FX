@@ -5,19 +5,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import java.io.IOException;
+//for sounds
+import javafx.fxml.Initializable;
+import javafx.scene.media.AudioClip;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomeScreen {
+public class HomeScreen implements Initializable{
 
     @FXML
     private Button pvpButton;
     @FXML
     private Button pvaiButton;
     @FXML
-    private Button exitButton; // Note: Button links to handleBackToMenu
+    private Button backButton;
 
     private Stage primaryStage;
+
+    private AudioClip buttonClickSound;
 
     public void setStage(Stage stage) {
         this.primaryStage = stage;
@@ -25,6 +33,7 @@ public class HomeScreen {
 
     @FXML
     private void handlePVP() {
+        playSoundEffect();
         System.out.println("PVP button clicked - Implement navigation");
         // TODO: Implement PVP screen loading logic
         // Example: loadScene("/com/example/fxml/pvp_screen.fxml");
@@ -32,6 +41,7 @@ public class HomeScreen {
 
     @FXML
     private void handlePVAI() {
+        playSoundEffect();
         System.out.println("PVAI button clicked - Implement navigation");
         // TODO: Implement PVAI screen loading logic
         // Example: loadScene("/com/example/fxml/pvai_screen.fxml");
@@ -39,10 +49,11 @@ public class HomeScreen {
 
     @FXML
     private void handleBackToMenu() {
+        playSoundEffect();
         try {
             Stage stage = this.primaryStage;
             if (stage == null) {
-                stage = (Stage) exitButton.getScene().getWindow();
+                stage = (Stage) backButton.getScene().getWindow();
             }
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/menu.fxml"));
@@ -65,32 +76,24 @@ public class HomeScreen {
         }
     }
 
-    // Optional helper method for loading scenes (DRY principle)
-    /*
-    private void loadScene(String fxmlPath) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         try {
-            Stage stage = this.primaryStage;
-             if (stage == null) {
-                 stage = (Stage) pvpButton.getScene().getWindow(); // Use any button
-             }
-            if (stage == null) return;
+            URL sound = getClass().getResource("/sounds/click.wav");
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Parent root = loader.load();
-
-            // If the loaded scene's controller needs the stage:
-            // Object controller = loader.getController();
-            // if (controller instanceof YourControllerClass) {
-            //    ((YourControllerClass) controller).setStage(stage);
-            // }
-
-            Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-            stage.setScene(scene);
-
-        } catch (IOException e) {
-            System.err.println("Failed to load scene: " + fxmlPath + " - " + e.getMessage());
-            e.printStackTrace();
+            if (sound != null) {
+                buttonClickSound = new AudioClip(sound.toExternalForm());
+            } else {
+                System.err.println("Error: Could not find button click sound file in " + getClass().getSimpleName() + "!");
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading button click sound in " + getClass().getSimpleName() + ": " + e.getMessage());
         }
     }
-    */
+
+    private void playSoundEffect() {
+        if (buttonClickSound != null) {
+            buttonClickSound.play();
+        }
+    }
 }
