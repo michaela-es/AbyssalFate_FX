@@ -6,12 +6,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-
+//for sounds
+import javafx.fxml.Initializable;
+import javafx.scene.media.AudioClip;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginScreen {
+public class LoginScreen implements Initializable{
 
     @FXML
     private TextField usernameField;
@@ -24,12 +27,12 @@ public class LoginScreen {
 
     @FXML
     private Label titleLabel;
-    public void initialize(URL location, ResourceBundle resources) {
-        titleLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20;");
-    }
+
+    private AudioClip buttonClickSound;
 
     @FXML
     private void handleLogin() {
+        playSoundEffect();
         String username = usernameField.getText().trim();
         String password = passwordField.getText();
 
@@ -39,7 +42,7 @@ public class LoginScreen {
         }
 
         if (UserManager.validateLogin(username, password)) {
-            showAlert("Login successful!");
+            showAlert("You have successfully logged in your accoount!");
             navigateToMenuScreen();
         } else {
             showAlert("Invalid username or password.");
@@ -48,6 +51,7 @@ public class LoginScreen {
 
     @FXML
     private void handleGoToRegister() {
+        playSoundEffect();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/register.fxml"));
             VBox registerRoot = loader.load();
@@ -89,5 +93,26 @@ public class LoginScreen {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            URL sound = getClass().getResource("/sounds/click.wav");
+
+            if (sound != null) {
+                buttonClickSound = new AudioClip(sound.toExternalForm());
+            } else {
+                System.err.println("Error: Could not find button click sound file in " + getClass().getSimpleName() + "!");
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading button click sound in " + getClass().getSimpleName() + ": " + e.getMessage());
+        }
+    }
+
+    private void playSoundEffect() {
+        if (buttonClickSound != null) {
+            buttonClickSound.play();
+        }
     }
 }

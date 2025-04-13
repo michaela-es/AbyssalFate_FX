@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootPane" onMouseClicked="#handleScreenTap" prefHeight="980.0" prefWidth="1820.0" style="-fx-background-image: url('file:/C:/Users/Acer/Github/AbyssalFate_FX/src/main/resources/game_background.gif'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.main.FirstScreen">
+    <center>
+        <Label text="Abyssal Fate" textFill="#2b2929" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="OCR A Extended" size="96.0" />
+            </font>
+            <BorderPane.margin>
+                <Insets bottom="50.0" />
+            </BorderPane.margin>
+         <effect>
+            <DropShadow spread="0.34">
+               <color>
+                  <Color red="0.5557647943496704" green="0.7052631378173828" blue="0.44144248962402344" />
+               </color>
+            </DropShadow>
+         </effect>
+        </Label>
+    </center>
+
+    <bottom>
+        <Label text="[ Tap anywhere to continue ]" textFill="#f2f2f2" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="OCR A Extended" size="22.0" />
+            </font>
+            <BorderPane.margin>
+                <Insets bottom="100.0" />
+            </BorderPane.margin>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="0.95876544713974" blue="0.38148146867752075" />
+               </color>
+            </DropShadow>
+         </effect>
+        </Label>
+    </bottom>
+
+</BorderPane>

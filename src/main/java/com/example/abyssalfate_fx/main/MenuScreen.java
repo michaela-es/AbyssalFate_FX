@@ -2,12 +2,19 @@ package com.example.abyssalfate_fx.main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import java.io.IOException;
+//for sounds
+import javafx.fxml.Initializable;
+import javafx.scene.media.AudioClip;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MenuScreen {
+public class MenuScreen implements Initializable{
 
     @FXML
     private Button startButton;
@@ -18,51 +25,96 @@ public class MenuScreen {
 
     private Stage primaryStage;
 
+    private AudioClip buttonClickSound;
+
     public void setStage(Stage stage) {
         this.primaryStage = stage;
     }
 
     @FXML
     private void handleStartGame() {
+        playSoundEffect();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/home.fxml"));
-            VBox homeRoot = loader.load();
-            Scene homeScene = new Scene(homeRoot, 1820, 980);
-
-            HomeScreen homeController = loader.getController();
-
             Stage stage = (Stage) startButton.getScene().getWindow();
-            homeController.setStage(stage);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/loading.fxml"));
+            Parent loadingRoot = loader.load();
 
-            stage.setScene(homeScene);
-            stage.show();
+            LoadingScreen loadingController = loader.getController();
+            Scene loadingScene = new Scene(loadingRoot, stage.getScene().getWidth(), stage.getScene().getHeight());
+            stage.setScene(loadingScene);
+            loadingController.startLoading(stage);
+
+        } catch (IOException e) {
+            System.err.println("Failed to load loading.fxml: " + e.getMessage());
+            e.printStackTrace();
         } catch (Exception e) {
+            System.err.println("An unexpected error occurred in handleStartGame: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     @FXML
     private void handleCredits() {
+        playSoundEffect();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/credits.fxml"));
-            VBox creditsRoot = loader.load();
-            Scene creditsScene = new Scene(creditsRoot, 1820, 980);
+            Parent creditsRoot = loader.load();
+            Scene currentScene = creditsButton.getScene();
+            Scene creditsScene = new Scene(creditsRoot, currentScene.getWidth(), currentScene.getHeight());
 
             CreditsScreen creditsController = loader.getController();
+            Stage stage = (Stage) currentScene.getWindow();
 
-            Stage stage = (Stage) creditsButton.getScene().getWindow();
-            creditsController.setStage(stage);
+            if (stage == null) {
+                System.err.println("Stage could not be determined in handleCredits.");
+                return;
+            }
+
+            if (creditsController != null) {
+                creditsController.setStage(stage);
+            } else {
+                System.err.println("Warning: CreditsScreen controller instance is null.");
+            }
 
             stage.setScene(creditsScene);
-            stage.show();
+
+        } catch (IOException e) {
+            System.err.println("Failed to load credits.fxml: " + e.getMessage());
+            e.printStackTrace();
         } catch (Exception e) {
+            System.err.println("An unexpected error occurred in handleCredits: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
+
     @FXML
     private void handleExit() {
+        playSoundEffect();
         Stage stage = (Stage) exitButton.getScene().getWindow();
-        stage.close();
+        if (stage != null) {
+            stage.close();
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            URL sound = getClass().getResource("/sounds/click.wav");
+
+            if (sound != null) {
+                buttonClickSound = new AudioClip(sound.toExternalForm());
+            } else {
+                System.err.println("Error: Could not find button click sound file in " + getClass().getSimpleName() + "!");
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading button click sound in " + getClass().getSimpleName() + ": " + e.getMessage());
+        }
+    }
+
+    private void playSoundEffect() {
+        if (buttonClickSound != null) {
+            buttonClickSound.play();
+        }
     }
 }

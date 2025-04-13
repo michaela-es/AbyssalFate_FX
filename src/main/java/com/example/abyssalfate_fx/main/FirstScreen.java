@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.AudioClip;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 //for sounds
@@ -13,44 +14,40 @@ import javafx.scene.media.AudioClip;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreditsScreen implements Initializable{
-
-    private Stage primaryStage;
+public class FirstScreen implements Initializable{
 
     private AudioClip buttonClickSound;
 
-    public void setStage(Stage stage) {
-        this.primaryStage = stage;
-    }
+    @FXML
+    private BorderPane rootPane;
 
     @FXML
-    private void handleBackToMenu() {
+    public void handleScreenTap(MouseEvent event) {
         playSoundEffect();
+        Stage stage = null;
         try {
-            if (primaryStage == null) {
-                System.err.println("Error: primaryStage is null in CreditsScreen.handleBackToMenu.");
-                return;
+            if (rootPane != null && rootPane.getScene() != null) {
+                stage = (Stage) rootPane.getScene().getWindow();
             }
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/menu.fxml"));
-            Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/register.fxml"));
+            Parent registerRoot = loader.load();
 
-            MenuScreen menuScreen = loader.getController();
-            if (menuScreen != null) {
-                menuScreen.setStage(primaryStage);
-            } else {
-                System.err.println("Warning: MenuScreen controller not found.");
+            RegisterScreen registerController = loader.getController();
+
+            if(registerController != null) {
+                registerController.setStage(stage);
             }
 
-            Scene currentScene = primaryStage.getScene();
-            Scene menuScene = new Scene(root, currentScene.getWidth(), currentScene.getHeight());
-            primaryStage.setScene(menuScene);
+            Scene registerScene = new Scene(registerRoot, rootPane.getScene().getWidth(), rootPane.getScene().getHeight());
+            stage.setScene(registerScene);
+            stage.setTitle("Register");
 
         } catch (IOException e) {
-            System.err.println("Failed to load menu.fxml: " + e.getMessage());
+            System.err.println("Failed to load register.fxml: " + e.getMessage());
             e.printStackTrace();
         } catch (Exception e) {
-            System.err.println("An unexpected error occurred in handleBackToMenu: " + e.getMessage());
+            System.err.println("An unexpected error occurred in handleScreenTap: " + e.getMessage());
             e.printStackTrace();
         }
     }

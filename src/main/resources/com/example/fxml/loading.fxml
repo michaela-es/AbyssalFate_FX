@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane"
+           prefHeight="980.0" prefWidth="1820.0"
+           xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.abyssalfate_fx.main.LoadingScreen"
+           style="-fx-background-image: url('file:/C:/Users/Acer/Github/Abyssal-Fate_new/res/menu_background.gif');  -fx-background-size: cover; -fx-background-position: center;"
+>
+    <children>
+        <BorderPane>
+            <center>
+                <Label fx:id="titleLabel" text="Abyssal Fate" textFill="white" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="OCR A Extended" size="80.0" />
+                    </font>
+                </Label>
+            </center>
+            <bottom>
+                <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ProgressBar fx:id="progressBar" prefWidth="1000.0" progress="0.0" style="-fx-accent: #FF6600; -fx-control-inner-background: #323232;" />
+                        <Label fx:id="progressLabel" text="Entering the abyss... 0%" textFill="white">
+                            <font>
+                                <Font name="OCR A Extended" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets bottom="100.0" left="50.0" right="50.0" top="20.0" />
+                    </padding>
+                </VBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</StackPane>
