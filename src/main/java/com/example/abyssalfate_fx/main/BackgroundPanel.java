@@ -1,4 +1,3 @@
-
 package com.example.abyssalfate_fx.main;
 
 import javax.swing.*;

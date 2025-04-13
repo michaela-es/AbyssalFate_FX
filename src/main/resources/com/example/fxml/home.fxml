@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="980.0" prefWidth="1820.0" spacing="20" style="-fx-background-image: url('file:/C:/Users/Acer/Github/Abyssal-Fate_new/res/menu_background.gif');              -fx-background-size: cover;              -fx-background-position: center;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.main.HomeScreen">
+
+    <HBox alignment="TOP_LEFT" prefHeight="42.0" prefWidth="1430.0" VBox.vgrow="NEVER">
+        <Button minHeight="-Infinity" onAction="#handleBackToMenu" prefHeight="33.0" prefWidth="58.0" style="-fx-background-color: #004b5a; -fx-text-fill: white;" text="Back">
+            <HBox.margin>
+                <Insets left="10.0" top="10.0" />
+            </HBox.margin>
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.9882352948188782" blue="0.6352941393852234" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+      <padding>
+         <Insets top="50.0" />
+      </padding>
+    </HBox>
+
+    <VBox alignment="CENTER" prefHeight="250.0" prefWidth="250.0" spacing="15" style="-fx-background-color: rgba(0, 0, 0, 0.5); -fx-padding: 30; -fx-background-radius: 20; -fx-border-radius: 20;">
+        <Label text="Choose your Fate" textFill="WHITE">
+            <font>
+                <Font name="OCR A Extended" size="18.0" />
+            </font>
+            <effect>
+                <Bloom threshold="0.82" />
+            </effect>
+        </Label>
+
+        <Button fx:id="pvpButton" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #004b5a;" text="Player vs Player" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="14.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.8" green="0.8" blue="0.55" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+
+        <Button fx:id="pvaiButton" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #004b5a;" text="Player vs AI" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="14.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.8" green="0.8" blue="0.55" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+
+        <VBox.margin>
+            <Insets top="230.0" />
+        </VBox.margin>
+    </VBox>
+</VBox>

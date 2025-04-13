@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" fillWidth="false" prefHeight="980.0" prefWidth="1820.0" spacing="20" style="-fx-background-image: url('file:/C:/Users/Acer/Github/AbyssalFate_FX/src/main/resources/menu_background.gif');              -fx-background-size: cover;              -fx-background-position: center;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.main.MenuScreen">
+
+    <VBox alignment="CENTER" prefHeight="239.0" prefWidth="250.0" spacing="15" style="-fx-background-color: rgba(0, 0, 0, 0.5);                  -fx-padding: 30;                  -fx-background-radius: 20;">
+      <Label text="Menu" textFill="WHITE">
+         <font>
+            <Font name="OCR A Extended" size="24.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.84" />
+         </effect>
+      </Label>
+
+        <Button fx:id="startButton" onAction="#handleStartGame" prefWidth="160.0" style="-fx-background-color: #004b5a;" text="Start Game" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="14.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.7882353067398071" green="0.7882353067398071" blue="0.5568627715110779" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+
+        <Button fx:id="creditsButton" onAction="#handleCredits" prefWidth="160.0" style="-fx-background-color: #004b5a;" text="Credits" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="14.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.7882353067398071" green="0.7882353067398071" blue="0.5568627715110779" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+
+        <Button fx:id="exitButton" onAction="#handleExit" prefWidth="160.0" style="-fx-background-color: #004b5a;" text="Exit" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="14.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.7882353067398071" green="0.7882353067398071" blue="0.5568627715110779" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+    </VBox>
+
+</VBox>

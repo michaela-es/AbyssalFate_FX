@@ -1,62 +1,96 @@
 package com.example.abyssalfate_fx.main;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import java.io.IOException;
 
-public class HomeScreen extends JFrame {
+public class HomeScreen {
 
-    public HomeScreen() {
-        setTitle("Abyssal Fate");
-        setSize(600, 500);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(true);
+    @FXML
+    private Button pvpButton;
+    @FXML
+    private Button pvaiButton;
+    @FXML
+    private Button exitButton; // Note: Button links to handleBackToMenu
 
-        BackgroundPanel backgroundLabel = new BackgroundPanel("/game_background.gif");
-        backgroundLabel.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);
+    private Stage primaryStage;
 
-        JLabel welcomeLabel = new JLabel("Welcome to Abyssal Fate!");
-        welcomeLabel.setFont(new Font("Serif", Font.BOLD, 30));
-        welcomeLabel.setForeground(Color.WHITE);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        backgroundLabel.add(welcomeLabel, gbc);
-
-        JButton pvpButton = new JButton("Player vs Player");
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        backgroundLabel.add(pvpButton, gbc);
-
-        JButton pvaiButton = new JButton("Player vs AI");
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        backgroundLabel.add(pvaiButton, gbc);
-
-        setContentPane(backgroundLabel);
-        setVisible(true);
-
-        pvpButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose(); //for now :)
-                //new screen for PvP
-            }
-        });
-
-        pvpButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose(); // Close the home screen
-                SwingUtilities.invokeLater(() -> new CharacterSelectScreen().setVisible(true)); // Open character selection screen
-            }
-        });
-
+    public void setStage(Stage stage) {
+        this.primaryStage = stage;
     }
+
+    @FXML
+    private void handlePVP() {
+        System.out.println("PVP button clicked - Implement navigation");
+        // TODO: Implement PVP screen loading logic
+        // Example: loadScene("/com/example/fxml/pvp_screen.fxml");
+    }
+
+    @FXML
+    private void handlePVAI() {
+        System.out.println("PVAI button clicked - Implement navigation");
+        // TODO: Implement PVAI screen loading logic
+        // Example: loadScene("/com/example/fxml/pvai_screen.fxml");
+    }
+
+    @FXML
+    private void handleBackToMenu() {
+        try {
+            Stage stage = this.primaryStage;
+            if (stage == null) {
+                stage = (Stage) exitButton.getScene().getWindow();
+            }
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/menu.fxml"));
+            Parent root = loader.load();
+
+            MenuScreen menuScreen = loader.getController();
+            if (menuScreen != null) {
+                menuScreen.setStage(stage);
+            }
+
+            Scene menuScene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+            stage.setScene(menuScene);
+
+        } catch (IOException e) {
+            System.err.println("Failed to load menu.fxml: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("An unexpected error occurred in handleBackToMenu: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Optional helper method for loading scenes (DRY principle)
+    /*
+    private void loadScene(String fxmlPath) {
+        try {
+            Stage stage = this.primaryStage;
+             if (stage == null) {
+                 stage = (Stage) pvpButton.getScene().getWindow(); // Use any button
+             }
+            if (stage == null) return;
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+
+            // If the loaded scene's controller needs the stage:
+            // Object controller = loader.getController();
+            // if (controller instanceof YourControllerClass) {
+            //    ((YourControllerClass) controller).setStage(stage);
+            // }
+
+            Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+            stage.setScene(scene);
+
+        } catch (IOException e) {
+            System.err.println("Failed to load scene: " + fxmlPath + " - " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    */
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" fillWidth="false" prefWidth="1820.0" prefHeight="980.0"  spacing="20" style="-fx-background-image: url('file:/C:/Users/Acer/Github/AbyssalFate_FX/src/main/resources/game_background.gif'); -fx-background-size: cover; -fx-background-position: center;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abyssalfate_fx.main.LoginScreen">
+
+    <VBox alignment="CENTER" prefHeight="289.0" prefWidth="252.0" spacing="10" style="-fx-background-color: rgba(0, 0, 0, 0.5); -fx-padding: 20; -fx-background-radius: 20;">
+        <Label fx:id="titleLabel" text="Login to Your Fate" textFill="WHITE">
+            <font>
+                <Font name="Consolas" size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="usernameField" minHeight="0.0" minWidth="0.0" prefHeight="26.0" prefWidth="190.0" promptText="Username">
+            <font>
+                <Font name="SansSerif Regular" size="12.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="passwordField" prefHeight="26.0" prefWidth="171.0" promptText="Password">
+            <font>
+                <Font name="SansSerif Regular" size="12.0" />
+            </font>
+        </PasswordField>
+        <Button fx:id="loginButton" onAction="#handleLogin" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #385e39;" text="Enter the Abyss" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.9879012107849121" blue="0.6370370388031006" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+        <Button fx:id="goToRegisterButton" onAction="#handleGoToRegister" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #385e39;" text="Register" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.9578947424888611" green="0.9127790927886963" blue="0.5711891055107117" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+    </VBox>
+</VBox>
