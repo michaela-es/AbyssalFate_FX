@@ -35,6 +35,7 @@ public class OpenPVP extends Application {
 
         stage.setTitle("PVP Battle");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

@@ -46,11 +46,10 @@ public class Fighter extends CharacterClass {
     }
 
     @Override
-    public void loseHP(int damage){
+    public void loseHP(int damage) {
         clearAC();
-
-        int hp = getHp();
-        Math.max(0, hp-=damage);
+        int newHp = super.getHp() - damage;
+        setHP(newHp);
     }
 
 }

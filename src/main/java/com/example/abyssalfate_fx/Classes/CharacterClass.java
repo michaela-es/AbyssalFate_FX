@@ -123,6 +123,9 @@ public abstract class CharacterClass {
 
     // Setters
 
+    public void setHP(int hp){
+        this.hp = hp;
+    }
     public void increaseAC (int ac){
         armorClass+=ac;
     }

@@ -1,7 +1,6 @@
 /* General background styling */
 .root {
     -fx-background-color: linear-gradient(to bottom, #1e1e2f, #3a3a5f);
-    /* -fx-background-image: url('path-to-your-bg-image.png') */
     -fx-background-size: cover;
 }
 

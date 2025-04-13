@@ -7,8 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.animation.PauseTransition;
-import javafx.util.Duration;
+import javafx.application.Platform;
 
 import java.io.*;
 import java.io.IOException;
@@ -90,23 +89,25 @@ public class ComputerBattleController implements Initializable {
         }
     }
     private void updateProgressBars() {
-        double playerProgress = (double) player.getHp() / player.getMaxHp();
-        double enemyProgress = (double) enemy.getHp() / enemy.getMaxHp();
+        Platform.runLater(() -> {
 
-        barPlayerHP.setProgress(playerProgress);
-        barEnemyHP.setProgress(enemyProgress);
+            double playerHp = Math.max(0, Math.min(player.getHp(), player.getMaxHp()));
+            double enemyHp = Math.max(0, Math.min(enemy.getHp(), enemy.getMaxHp()));
+            double playerMana = Math.max(0, Math.min(player.getMana(), player.getMaxMana()));
+            double enemyMana = Math.max(0, Math.min(enemy.getMana(), enemy.getMaxMana()));
 
-        double playerMana = (double) player.getMana() / player.getMaxMana();
-        double enemyMana = (double) enemy.getMana() / enemy.getMaxMana();
+            double playerProgress = (double) playerHp / player.getMaxHp();
+            double enemyProgress = (double) enemyHp / enemy.getMaxHp();
+            double playerManaProgress = (double) playerMana / player.getMaxMana();
+            double enemyManaProgress = (double) enemyMana / enemy.getMaxMana();
 
-        barPlayerMP.setProgress(playerMana);
-        barEnemyMP.setProgress(enemyMana);
-
-        barPlayerHP.getStyleClass().add("progress-bar");
-        barPlayerMP.getStyleClass().add("progress-bar-mana");
-        barEnemyHP.getStyleClass().add("progress-bar");
-        barEnemyMP.getStyleClass().add("progress-bar-mana");
+            barPlayerHP.setProgress(playerProgress);
+            barEnemyHP.setProgress(enemyProgress);
+            barPlayerMP.setProgress(playerManaProgress);
+            barEnemyMP.setProgress(enemyManaProgress);
+        });
     }
+
 
     public void speakEvent(String event) {
         writeBattleLog(event);

@@ -1,7 +1,8 @@
 /* styles.css - Fantasy RPG Theme */
 
 .root {
-    -fx-background-color: #1a1a1a;
+    /*-fx-background-color: #1a1a1a;*/
+    -fx-background-image: url('/com/example/fxml/arena.jpg');
     -fx-background-size: cover;
     -fx-font-family: 'Times New Roman', serif;
 }

@@ -33,6 +33,8 @@ public class OpenPVE extends Application {
 
         stage.setTitle("Computer Battle");
         stage.setScene(scene);
+        stage.setResizable(false);
+
 
         // Maximizing the window but not going full screen
         stage.setMaximized(true);
