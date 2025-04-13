@@ -1,14 +1,24 @@
 package com.example.abyssalfate_fx.main;
+
 import com.example.abyssalfate_fx.Classes.CharactersSelection;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 public class CharacterSelectScreen extends JFrame {
     private ArrayList<CharactersSelection> characters = new ArrayList<>();
+    private MediaPlayer mediaPlayer;
 
     public CharacterSelectScreen() {
+        // Initialize JavaFX for MediaPlayer
+        new JFXPanel();
+
         setTitle("Choose Your FATE");
         setSize(1000, 700);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,18 +42,20 @@ public class CharacterSelectScreen extends JFrame {
         backgroundPanel.add(cardPanel, BorderLayout.CENTER);
 
         setContentPane(backgroundPanel);
+
+        // Play selection music
+        playMusic("selection.mp3");
     }
 
     private void initCharacters() {
-        // Assumes Mage.png, green_guy.png etc. are DIRECTLY inside the 'resources' source folder
-        characters.add(new CharactersSelection("Heathcliff", "/Mage.png", true, 4, 10000, 600, 700, "Hailing...")); // Check case: Mage.png or mage.png?
+        characters.add(new CharactersSelection("Heathcliff", "/Mage.png", true, 4, 10000, 600, 700, "Hailing..."));
         characters.add(new CharactersSelection("Green Guy", "/mage.gif", true, 4, 12000, 550, 800, "Known..."));
         characters.add(new CharactersSelection("Mage Girl", "/girl.png", true, 5, 9500, 750, 600, "This bright..."));
         characters.add(new CharactersSelection("Blaze", "/blaze.png", true, 4, 10500, 700, 550, "Blaze lives..."));
         characters.add(new CharactersSelection("Nova", "/nova.png", true, 5, 9800, 650, 750, "Drawing power..."));
         characters.add(new CharactersSelection("Titan", "/titan.png", true, 5, 15000, 500, 950, "Forged in..."));
         characters.add(new CharactersSelection("Voltaire", "/voltaire.png", true, 5, 11000, 700, 600, "Born of storm..."));
-        characters.add(new CharactersSelection("Shade", "/Mage.png", true, 4, 10200, 650, 720, "Legends persist...")); // Using Mage image for Shade too
+        characters.add(new CharactersSelection("Shade", "/Mage.png", true, 4, 10200, 650, 720, "Legends persist..."));
     }
 
     private JPanel drawCharacterCards() {
@@ -85,6 +97,9 @@ public class CharacterSelectScreen extends JFrame {
 
                 public void mouseClicked(MouseEvent e) {
                     new CharacterDetailsScreen(c).setVisible(true);
+                    if (mediaPlayer != null) {
+                        mediaPlayer.stop(); // stop music on transition
+                    }
                     dispose();
                 }
             });
@@ -94,6 +109,18 @@ public class CharacterSelectScreen extends JFrame {
 
         wrapperPanel.add(cardPanel);
         return wrapperPanel;
+    }
+
+    private void playMusic(String fileName) {
+        try {
+            String path = getClass().getResource("/music/" + fileName).toExternalForm();
+            Media media = new Media(path);
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Loop music
+            mediaPlayer.play();
+        } catch (Exception e) {
+            System.out.println("Error playing music: " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
