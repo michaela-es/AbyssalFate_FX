@@ -15,6 +15,8 @@ public class CharacterList {
         characters.add(new Warlock());
         characters.add(new Wizard());
         characters.add(new Sorcerer());
+        characters.add(new Barbarian());
+
     }
 
     public CharacterClass getCharacter(int index) {
