@@ -1,147 +1,152 @@
-/* === styles.css (Tekken + Abyss Theme) === */
+/* === styles.css (Abyssal Tekken Chaos Theme) === */
 
 /* /--- Root & Variables --- */
 .root {
-    /* --- Abyss Color Palette --- */
-    -abyss-deep-blue: #0b1a2b;
-    -abyss-dark-purple: #1a0f2a;
-    -abyss-mid-blue: #1a3a5f;
-    -abyss-glow-cyan: #40E0D0; /* Turquoise/Cyan */
-    -abyss-glow-purple: #9370DB; /* Medium Purple */
-    -abyss-accent-gold: #ffcc33;
-    -abyss-text-light: #e8e8f0;
-    -abyss-text-dark: #111;
-    -abyss-border-dark: #334455;
-    -abyss-border-light: #778899; /* Slate Gray */
-    -abyss-metallic-dark: linear-gradient(to bottom, #505a65, #283038);
-    -abyss-metallic-light: linear-gradient(to bottom, #a0a8b0, #606870);
+    /* Updated Abyss Color Palette */
+    -abyss-void: #0a0a12; /* Deep void black */
+    -abyss-chaos-purple: #2a0f3a;
+    -abyss-neon-purple: #8a2be2; /* Electric purple */
+    -abyss-glow-cyan: #00ffea; /* Brighter cyan */
+    -abyss-blood: #6a0000; /* Deep crimson */
+    -abyss-accent-gold: #ffd700;
+    -abyss-text-light: #f0f0ff;
+    -abyss-border-void: #3a3a4a;
 
-    /* Base Background: Deep blue/purple gradient */
-    -fx-background-color: linear-gradient(to bottom, -abyss-mid-blue, -abyss-deep-blue);
-    -fx-background-size: cover;
+    /* Chaotic Background: Swirling void */
+    -fx-background-color:
+        radial-gradient(radius 150%,
+            -abyss-chaos-purple 20%,
+            -abyss-void 80%
+        ),
+        linear-gradient(to bottom right,
+            rgba(138,43,226,0.1) 0%,
+            rgba(10,10,18,1) 40%
+        );
 
-    /* Base Font: Bold Sans-Serif (Ensure availability) */
-    -fx-font-family: "Impact", "Arial Black", sans-serif;
+    /* Add subtle noise texture */
+    -fx-background-image: url('noise.png');
+    -fx-background-blend-mode: overlay;
 }
 
 /* --- Typography --- */
 .label {
-    -fx-font-family: inherit;
-    -fx-font-size: 24px;
-    -fx-text-fill: -abyss-text-light; /* Use light text variable */
-    -fx-font-weight: bold;
-    -fx-text-alignment: center;
-    /* Shadow for readability */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 3, 0.0, 1, 1);
+    -fx-font-family: "Haettenschweiler", "Impact", sans-serif;
+    -fx-effect: dropshadow(gaussian, rgba(138,43,226,0.7), 8, 0.0, 2, 2);
 }
 
-/* Player Names - Use Gold Accent */
 #nameP1, #nameP2 {
-    -fx-font-size: 22px;
-    -fx-font-weight: bold;
-    -fx-text-fill: -abyss-accent-gold;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1.0), 4, 0.0, 1, 1);
+    -fx-text-fill: linear-gradient(to bottom, -abyss-accent-gold, #ffaa00);
+    -fx-effect:
+        dropshadow(gaussian, rgba(0,0,0,0.9), 6, 0.0, 2, 2),
+        innershadow(gaussian, rgba(138,43,226,0.5), 5, 0.0, 0, 1);
 }
 
 /* --- Buttons --- */
 .button {
-    -fx-background-color: -abyss-metallic-dark; /* Dark metallic */
-    -fx-border-width: 1px;
-    -fx-border-color: -abyss-border-dark;
-    -fx-padding: 10px 25px;
-    -fx-font-family: inherit;
-    -fx-font-size: 18px;
+    -fx-background-color:
+        linear-gradient(to bottom,
+            rgba(42,15,58,0.9) 0%,
+            rgba(10,10,18,0.9) 50%,
+            rgba(42,15,58,0.9) 100%
+        );
+    -fx-border-color: -abyss-neon-purple;
+    -fx-border-width: 1.5px;
     -fx-text-fill: -abyss-text-light;
-    -fx-background-radius: 2px; /* Sharp */
-    -fx-border-radius: 2px;
-    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
 }
 
 .button:hover {
-    -fx-background-color: -abyss-metallic-light; /* Lighter metallic */
-    -fx-text-fill: -abyss-glow-cyan; /* Cyan glow text */
-    -fx-border-color: -abyss-glow-cyan; /* Cyan border highlight */
-    /* Cyan glow effect */
-    -fx-effect: dropshadow(gaussian, rgba(64, 224, 208, 0.7), 12, 0.0, 0, 0);
-    -fx-cursor: hand;
-}
-
-.button:pressed {
-    -fx-background-color: -abyss-deep-blue; /* Use deep color */
-    -fx-text-fill: -abyss-text-light;
-    -fx-border-color: -abyss-border-dark;
-    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.6), 8, 0.0, 1, 1);
+    -fx-background-color:
+        linear-gradient(to bottom,
+            rgba(138,43,226,0.7) 0%,
+            rgba(42,15,58,0.9) 50%,
+            rgba(138,43,226,0.7) 100%
+        );
+    -fx-border-color: -abyss-glow-cyan;
+    -fx-effect:
+        dropshadow(gaussian, rgba(138,43,226,0.9), 15, 0.0, 0, 0),
+        innershadow(gaussian, rgba(0,255,234,0.3), 5, 0.0, 0, 1);
 }
 
 /* --- Progress Bars --- */
-/* General Track Style - Dark, themed border */
 .progress-bar {
-    -fx-background-color: #151820; /* Very dark base */
-    -fx-border-color: -abyss-border-dark;
-    -fx-border-width: 1px;
-    -fx-background-radius: 0; /* Sharp */
-    -fx-border-radius: 0;
-    -fx-padding: 2px;
-    -fx-accent: transparent; /* Prevent accent affecting track */
+    -fx-background-color: #1a1a2a; /* Void dark */
+    -fx-border-color: -abyss-border-void;
+    -fx-padding: 3px;
 }
 
-/* HP Bar Fill - Keep Red/Orange convention, but maybe slightly deeper red */
+/* HP Bar - Blood River */
 .progress-bar > .bar {
-    -fx-background-color: linear-gradient(to right, #cc2200, #ff5500); /* Deeper Red/Orange */
-    -fx-background-insets: 0;
-    -fx-background-radius: 0;
-    -fx-border-radius: 0;
-    -fx-padding: 0;
-    -fx-effect: dropshadow(gaussian, rgba(255, 85, 0, 0.4), 6, 0.0, 0, 0);
+    -fx-background-color:
+        linear-gradient(to right,
+            #400000 0%,
+            -abyss-blood 50%,
+            #8b0000 100%
+        );
+    -fx-effect:
+        dropshadow(gaussian, rgba(255,0,0,0.3), 8, 0.0, 0, 1),
+        innershadow(gaussian, rgba(0,0,0,0.5), 5, 0.0, 1, 1);
 }
 
-/* Mana/Resource Bar - Abyss Purple/Blue Theme */
-.progress-bar-mana { /* Apply this style class in FXML */
-     -fx-background-color: #101018; /* Darker track for mana */
-     -fx-border-color: #302540; /* Purple-tinted border */
+/* Mana Bar - Chaotic Energy */
+.progress-bar-mana > .bar {
+    -fx-background-color:
+        linear-gradient(to right,
+            #2a0f3a 0%,
+            -abyss-neon-purple 50%,
+            #4b0082 100%
+        );
+    -fx-effect:
+        dropshadow(gaussian, rgba(138,43,226,0.5), 8, 0.0, 0, 2),
+        innershadow(gaussian, rgba(0,255,234,0.2), 5, 0.0, 1, 1);
+}
+
+/* Animated Glow for Mana */
+@keyframes chaotic-glow {
+    0% { -fx-opacity: 0.3; }
+    50% { -fx-opacity: 0.8; }
+    100% { -fx-opacity: 0.3; }
+}
+
+.progress-bar-mana {
+    -fx-border-color:
+        linear-gradient(to right,
+            -abyss-neon-purple,
+            -abyss-glow-cyan
+        );
+    -fx-border-width: 1.5px;
+    -fx-effect: dropshadow(gaussian, rgba(138,43,226,0.2), 10, 0.5, 0, 0);
 }
 
 .progress-bar-mana > .bar {
-     /* Gradient from Deep Purple to Glowing Purple */
-     -fx-background-color: linear-gradient(to right, #5a3a7f, -abyss-glow-purple);
-     -fx-background-insets: 0;
-     -fx-background-radius: 0;
-     -fx-border-radius: 0;
-     -fx-padding: 0;
-     /* Matching purple glow */
-     -fx-effect: dropshadow(gaussian, rgba(147, 112, 219, 0.5), 6, 0.0, 0, 0);
+    -fx-opacity: 0.9;
+    -fx-animation: chaotic-glow 2s infinite;
 }
-
 
 /* --- Containers --- */
-/* General Container - Dark, themed border */
-.container { /* Apply this style class in FXML */
-    -fx-border-color: -abyss-border-light; /* Lighter slate gray border */
-    -fx-border-width: 1px;
-    -fx-border-radius: 0; /* Sharp */
-    /* Semi-transparent deep blue/purple */
-    -fx-background-color: linear-gradient(to bottom right, rgba(11, 26, 43, 0.7), rgba(26, 15, 42, 0.7));
-    -fx-padding: 15px;
-    -fx-background-insets: 0;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.0, 2, 2); /* Subtle shadow for depth */
+.container {
+    -fx-border-color:
+        linear-gradient(to bottom right,
+            -abyss-neon-purple,
+            -abyss-glow-cyan
+        );
+    -fx-background-color: rgba(10,10,18,0.9);
+    -fx-effect:
+        dropshadow(gaussian, rgba(138,43,226,0.3), 10, 0.0, 2, 2),
+        innershadow(gaussian, rgba(0,255,234,0.1), 5, 0.0, 1, 1);
 }
 
-
-/* --- Text Fields (if used) --- */
+/* --- Text Fields --- */
 .text-field {
-    -fx-background-color: -abyss-deep-blue; /* Use deep color */
-    -fx-text-fill: -abyss-text-light;
-    -fx-border-color: -abyss-border-dark;
-    -fx-border-width: 1px;
-    -fx-background-radius: 0;
-    -fx-border-radius: 0;
-    -fx-padding: 8px 12px;
-    -fx-font-size: 16px;
-    /* Maybe a less stylized font for input clarity */
-    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-background-color: rgba(42,15,58,0.7);
+    -fx-border-color: -abyss-neon-purple;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.5), 3, 0.0, 1, 1);
 }
 
 .text-field:focused {
-    -fx-border-color: -abyss-glow-cyan; /* Highlight focus with cyan */
-    -fx-effect: dropshadow(gaussian, rgba(64, 224, 208, 0.4), 5, 0.0, 0, 0);
+    -fx-border-color: -abyss-glow-cyan;
+    -fx-effect:
+        dropshadow(gaussian, rgba(0,255,234,0.3), 10, 0.0, 0, 0),
+        innershadow(gaussian, rgba(0,255,234,0.1), 5, 0.0, 1, 1);
 }

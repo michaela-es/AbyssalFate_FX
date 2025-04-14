@@ -1,128 +1,92 @@
-/* styles.css - Fantasy RPG Theme */
 
 .root {
-    /*-fx-background-color: #1a1a1a;*/
-    -fx-background-image: url('/com/example/fxml/arena.jpg');
     -fx-background-size: cover;
-    -fx-font-family: 'Times New Roman', serif;
+    -fx-font-family: 'Papyrus', 'Times New Roman', serif;
 }
 
 /* Text Styling */
 .text {
-    -fx-fill: #3d2b1f; /* Dark brown for text */
+    -fx-fill: #b08cff; /* Glowing purple for text */
     -fx-font-weight: bold;
 }
 
 .txtClassName {
     -fx-font-size: 28px;
-    -fx-font-family: 'Courier New', 'Times New Roman', serif;
-    -fx-fill: #FFFFFF;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 0.5, 0, 1);
+    -fx-font-family: 'Courier New', 'Papyrus', serif;
+    -fx-fill: #e6ccff; /* Soft lavender */
+    -fx-effect: dropshadow(gaussian, rgba(128,0,128,0.8), 4, 0.5, 0, 2); /* Purple glow */
 }
 
 /* TextArea - Character Story */
 .textCharStory {
     -fx-font-size: 16px;
-    -fx-background-color: rgba(245, 235, 220, 0.7); /* Parchment color */
-    -fx-background-radius: 5;
-    -fx-border-color: #5d3a1a;
-    -fx-border-width: 2;
-    -fx-border-radius: 5;
-    -fx-padding: 10;
-    -fx-text-fill: #3d2b1f;
+    -fx-background-color: rgba(50, 0, 75, 0.8); /* Dark void purple */
+    -fx-background-radius: 10;
+    -fx-border-color: #a020f0; /* Vivid purple border */
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-padding: 12;
+    -fx-text-fill: #dcd6f7; /* Pale lilac text */
     -fx-font-style: italic;
 }
 
 /* Buttons - General Style */
 .button {
     -fx-background-color:
-        linear-gradient(#8b4513, #5d3a1a),
-        radial-gradient(center 50% -40%, radius 200%, #8b4513 45%, #5d3a1a 50%);
-    -fx-background-radius: 5;
+        linear-gradient(#4b0082, #1a0033),
+        radial-gradient(center 50% -40%, radius 200%, #4b0082 45%, #1a0033 50%);
+    -fx-background-radius: 8;
     -fx-background-insets: 0,1;
-    -fx-text-fill: #f5e7c1;
-    -fx-font-size: 14px;
+    -fx-text-fill: #dcd6f7; /* Pale lilac text */
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-padding: 8 15 8 15;
-    -fx-border-color: #f5e7c1;
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);
+    -fx-padding: 10 20;
+    -fx-border-color: #800080; /* Deep purple border */
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.7), 6, 0.0, 0, 2);
 }
 
 .button:hover {
     -fx-background-color:
-        linear-gradient(#a0522d, #6b4423),
-        radial-gradient(center 50% -40%, radius 200%, #a0522d 45%, #6b4423 50%);
-    -fx-text-fill: #fff8e7;
-    -fx-scale-x: 1.02;
-    -fx-scale-y: 1.02;
+        linear-gradient(#800080, #4b0082),
+        radial-gradient(center 50% -40%, radius 200%, #800080 45%, #4b0082 50%);
+    -fx-text-fill: #ffffff; /* Bright white hover text */
 }
 
 .button:pressed {
     -fx-background-color:
-        linear-gradient(#5d3a1a, #8b4513),
-        radial-gradient(center 50% -40%, radius 200%, #5d3a1a 45%, #8b4513 50%);
-    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.7), 5, 0.0, 0, 1);
+        linear-gradient(#1a0033, #4b0082),
+        radial-gradient(center 50% -40%, radius 200%, #1a0033 45%, #4b0082 50%);
 }
 
-/* Toggle Buttons - Game Mode Selector */
+/* Toggle Buttons */
 .toggle-button {
     -fx-background-color:
-        linear-gradient(#4a3520, #2e1f14),
-        radial-gradient(center 50% -40%, radius 200%, #4a3520 45%, #2e1f14 50%);
-    -fx-background-radius: 5;
-    -fx-background-insets: 0,1;
-    -fx-text-fill: #d4af37; /* Gold color */
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-padding: 8 20 8 20;
-    -fx-border-color: #d4af37;
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);
+        linear-gradient(#301934, #10061a),
+        radial-gradient(center 50% -40%, radius 200%, #301934 45%, #10061a 50%);
+    -fx-text-fill: #b08cff; /* Glowing purple text */
+    -fx-font-size: 18px;
 }
 
 .toggle-button:selected {
     -fx-background-color:
-        linear-gradient(#d4af37, #a67c00),
-        radial-gradient(center 50% -40%, radius 200%, #d4af37 45%, #a67c00 50%);
-    -fx-text-fill: #2e1f14;
-    -fx-border-color: #2e1f14;
-    -fx-effect: innershadow(three-pass-box, rgba(255,215,0,0.5), 5, 0.0, 0, 1);
+        linear-gradient(#800080, #4b0082),
+        radial-gradient(center 50% -40%, radius 200%, #800080 45%, #4b0082 50%);
 }
 
 /* Special Button for Lock In */
 #btnLock {
     -fx-background-color:
-        linear-gradient(#d4af37, #a67c00),
-        radial-gradient(center 50% -40%, radius 200%, #d4af37 45%, #a67c00 50%);
-    -fx-text-fill: #2e1f14;
-    -fx-font-size: 16px;
-    -fx-border-color: #2e1f14;
-    -fx-effect: dropshadow(three-pass-box, rgba(255,215,0,0.5), 8, 0.0, 0, 2);
-}
-
-#btnLock:hover {
-    -fx-background-color:
-        linear-gradient(#ffd700, #d4af37),
-        radial-gradient(center 50% -40%, radius 200%, #ffd700 45%, #d4af37 50%);
-    -fx-effect: dropshadow(three-pass-box, rgba(255,215,0,0.8), 10, 0.0, 0, 3);
+        linear-gradient(#d700ff, #800080),
+        radial-gradient(center 50% -40%, radius 200%, #d700ff 45%, #800080);
+    -fx-text-fill: #ffffff; /* White text for contrast */
 }
 
 /* Navigation Buttons */
 #btnNext, #btnBack {
     -fx-background-color: transparent;
-    -fx-border-color: #d4af37;
-    -fx-border-width: 2;
-    -fx-border-radius: 20;
-    -fx-text-fill: #d4af37;
-    -fx-font-size: 18px;
-    -fx-min-width: 40px;
-    -fx-min-height: 40px;
-    -fx-max-width: 40px;
-    -fx-max-height: 40px;
-    -fx-shape: "M 0 0 L 20 10 L 0 20 Z"; /* Triangle shape */
+    -fx-border-color: #b08cff; /* Void purple border */
 }
 
 #btnBack {
@@ -130,43 +94,10 @@
 }
 
 #btnNext:hover, #btnBack:hover {
-    -fx-background-color: rgba(212, 175, 55, 0.2);
-    -fx-border-color: #ffd700;
-    -fx-text-fill: #ffd700;
+    -fx-background-color: rgba(176,124,255,0.3); /* Purple glow on hover */
 }
 
-/* Stats Display - If you add one */
+/* Stats Display Pane */
 .stats-pane {
-    -fx-background-color: rgba(139, 69, 19, 0.7);
-    -fx-background-radius: 10;
-    -fx-border-color: #d4af37;
-    -fx-border-width: 2;
-    -fx-border-radius: 10;
-    -fx-padding: 15;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0.0, 0, 3);
-}
-
-/* Scroll Bars - For TextArea */
-.scroll-bar:vertical {
-    -fx-background-color: transparent;
-}
-
-.scroll-bar:vertical .track {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
-
-.scroll-bar:vertical .thumb {
-    -fx-background-color: linear-gradient(#8b4513, #5d3a1a);
-    -fx-background-radius: 5;
-}
-
-.scroll-bar .increment-button, .scroll-bar .decrement-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0 0 0 0;
-}
-
-.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
-    -fx-shape: " ";
-    -fx-padding: 0;
+    -fx-background-color: rgba(25,25,112,0.8); /* Midnight blue background */
 }

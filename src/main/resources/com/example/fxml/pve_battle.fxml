@@ -13,7 +13,7 @@
                 <Font name="Arial Black" size="50.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="barEnemyHP" prefHeight="37.0" prefWidth="434.0" progress="0.0" style="-fx-background-color: RED;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="133.0" />
+        <ProgressBar fx:id="barEnemyHP" styleClass="progress-bar-hp" prefHeight="37.0" prefWidth="434.0" progress="0.0" style="-fx-background-color: RED;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="133.0" />
         <ProgressBar fx:id="barEnemyMP" prefHeight="37.0" prefWidth="434.0" progress="0.0" styleClass="progress-bar-mana, enemy-mana-border" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="190.0" />
 
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2cbd3" height="220.0" stroke="WHITE" strokeType="INSIDE" width="498.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="44.0" />
@@ -22,7 +22,7 @@
                 <Font name="Arial Black" size="50.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="barPlayerHP" prefHeight="37.0" prefWidth="441.0" progress="0.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="133.0" />
+        <ProgressBar fx:id="barPlayerHP" styleClass="progress-bar-hp"  prefHeight="37.0" prefWidth="441.0" progress="0.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="133.0" />
         <ProgressBar fx:id="barPlayerMP" prefHeight="37.0" prefWidth="441.0" progress="0.0" styleClass="progress-bar-mana" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="190.0" />
 
         <TextArea fx:id="txtEvents" editable="false" prefHeight="159.0" prefWidth="631.0" style="-fx-background-color: gray;" wrapText="true" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="342.0">

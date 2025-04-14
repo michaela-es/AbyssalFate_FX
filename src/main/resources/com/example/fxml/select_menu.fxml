@@ -32,12 +32,12 @@
             <Font name="Courier New" size="57.0" />
          </font>
       </Text>
-      <Button fx:id="btnBack" layoutX="512.0" layoutY="514.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="125.0" text="&lt;-">
+      <Button fx:id="btnBack" layoutX="512.0" layoutY="514.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="125.0" text="&lt;&lt;">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="btnNext" layoutX="655.0" layoutY="514.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="114.0" text="-&gt;">
+      <Button fx:id="btnNext" layoutX="655.0" layoutY="514.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="114.0" text="&gt;&gt;">
          <font>
             <Font size="33.0" />
          </font>
